@@ -7,7 +7,7 @@
 <h1 align="center">Ctrl+Move</h1>
 <p align="center"><b>Physio in your pocket. Take control before pain takes it from you.</b></p>
 <p align="center">
-  <a href="https://josesyson-physio.github.io/ctrl-move/"><b>Open the live app →</b></a>
+  <a href="https://josesyson-physio.github.io/CTRL-Move/"><b>Open the live app →</b></a>
 </p>
 
 ---
