@@ -1,3 +1,6 @@
+import { BINGO_GUIDE } from './bingoGuide.js';
+import { LINES } from './bingo.js';
+
 // Quick Relief moves and routines.
 // Add a physio video to any move with `video: 'https://…/clip.mp4'` and the
 // player shows it automatically. `locked: true` shows "coming soon".
@@ -22,9 +25,38 @@ export const ROUTINES = {
   'desk-reset': { name: 'Desk reset', summary: 'Neck, wrists and eyes · 3 moves · about 1.5 min', moves: ['chin-tucks', 'wrist-flexor', 'eye-reset'] },
 };
 
+const toMove = (g, e) => ({ name: e.title, tag: g.name, focus: e.dose || 'Physio guided', sec: e.sec, cue: e.text });
+const minutes = (moves) => Math.max(1, Math.round(moves.reduce((s, m) => s + m.sec, 0) / 60));
+
+// Resolves a routine id to { id, name, summary, moves: [move objects] }.
+//   'desk-reset'        a multi-move routine from ROUTINES
+//   'chin-tucks'        a single move from MOVES
+//   'bingo:<slug>'      the 5 exercises for one Pain Bingo symptom
+//   'line:<n>'          one short exercise per symptom on bingo line n
 export function routineById(id) {
-  if (ROUTINES[id]) return { id, ...ROUTINES[id] };
-  if (MOVES[id]) return { id, name: MOVES[id].name, summary: `${MOVES[id].focus} · ${MOVES[id].sec} s`, moves: [id] };
+  if (!id) return null;
+  if (id.startsWith('bingo:')) {
+    const g = BINGO_GUIDE.find((x) => x.slug === id.slice(6));
+    if (!g) return null;
+    const moves = g.exercises.map((e) => toMove(g, e));
+    return { id, name: `${g.name} relief`, summary: `${moves.length} exercises · about ${minutes(moves)} min`, moves };
+  }
+  if (id.startsWith('line:')) {
+    const line = LINES[Number(id.slice(5))];
+    if (!line) return null;
+    // One short exercise per symptom, never repeating one already in the routine.
+    const used = new Set();
+    const moves = line.map((i) => {
+      const g = BINGO_GUIDE[i];
+      const fresh = g.exercises.filter((x) => !used.has(x.title.toLowerCase()));
+      const e = fresh.find((x) => x.sec <= 90) || fresh[0] || g.exercises[0];
+      used.add(e.title.toLowerCase());
+      return toMove(g, e);
+    });
+    return { id, name: 'Bingo line routine', summary: `${moves.length} moves · about ${minutes(moves)} min`, moves };
+  }
+  if (ROUTINES[id]) return { id, ...ROUTINES[id], moves: ROUTINES[id].moves.map((m) => ({ id: m, ...MOVES[m] })) };
+  if (MOVES[id]) return { id, name: MOVES[id].name, summary: `${MOVES[id].focus} · ${MOVES[id].sec} s`, moves: [{ id, ...MOVES[id] }] };
   return null;
 }
 

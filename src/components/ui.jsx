@@ -35,6 +35,7 @@ const PATHS = {
   skip: <path d="M18 5v14M5 5l9 7-9 7z" />,
   shield: <path d="M12 3 5 6v5c0 4.5 3 8.3 7 10 4-1.7 7-5.5 7-10V6z" />,
   download: <path d="M12 4v12m0 0-5-5m5 5 5-5M5 20h14" />,
+  check: <path d="M5 12.5l4.5 4.5L19 7" />,
 };
 
 export function Icon({ name, size = 20, color = 'currentColor', width = 1.8, fill = 'none', className }) {

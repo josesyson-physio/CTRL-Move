@@ -8,7 +8,8 @@ Items marked `draft: true` were written for the prototype and are waiting for th
 |---|---|---|
 | `scan.js` | The 6 Hardware Scan tests, their answer options, points (1–3) and XP | Levels 1, 3 and 5 are drafts (Neck Turn Check, Seated Twist Check, Prayer Wrist Check) |
 | `challenges.js` | The 8 Muscle Challenges, targets and XP | Challenges 1, 2, 4 and 8 are drafts (Wall Sit, Desk Push-ups, Glute Bridge, Plank Hold) |
-| `bingo.js` | The 25 Pain Bingo symptoms, XP per tile and line, symptoms that show a "see a doctor" note | Full Pain Bingo rules and symptom list |
+| `bingo.js` | The 25 Pain Bingo squares, XP per tile and line, symptoms that show a "see a doctor" note | Done: matches the "Bingo for Pain" document |
+| `bingoGuide.js` | For each square: 5 exercises (instruction, dose, timer length), simple tips and safety advice | Done: from "Bingo for Pain". Timer lengths are estimated from each dose; adjust `sec` if needed |
 | `routines.js` | Quick Relief moves (name, focus, duration, cue, optional `video` URL) and multi-move routines | Physio videos; Eccentric Calf Raises details; Giraffe Neck Stretch (currently "coming soon") |
 | `physios.js` | Specialists in Consult (fees, hours, rating, focus areas for matching) | Confirm details and consent from each physio |
 | `feed.js` | Seed posts in the feed | Every seed post is `sample: true`. Ask the named physio to approve it or replace it with their own |

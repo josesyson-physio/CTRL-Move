@@ -44,7 +44,7 @@ For people who work at desks, that pain rarely arrives all at once. It builds qu
 - **Desk reset**: a 90-second sequence of chin tucks, wrist stretch and eye reset.
 
 **Play**
-- **Pain Bingo**: a 5×5 symptom card. Each line clears for +50 XP and unlocks a relief routine. XP is capped per day, so it can't be farmed. Some symptoms (numbness, racing heart) show a "see a doctor" note.
+- **Pain Bingo**: a 5×5 symptom card. Every one of the 25 symptoms opens a guide with 5 physio exercises, simple tips and safety advice from the MotionPlus *Bingo for Pain* protocol, plus a timed routine. Each line clears for +50 XP and unlocks a relief routine. XP is capped per day, so it can't be farmed. Some symptoms (numbness, racing heart) show a "see a doctor" note.
 - **Muscle Challenge**: eight strength checks with XP for each.
 - **Levels, streaks and 8 badges.**
 

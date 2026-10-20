@@ -1,5 +1,6 @@
 // Pain Bingo card: 25 symptoms in reading order (B1, I1, N1 … O5).
-// Replace with the MotionPlus Pain Bingo document when ready.
+// Matches the MotionPlus "Bingo for Pain" document; each square's exercises,
+// tips and safety advice live in bingoGuide.js at the same index.
 
 export const BINGO = [
   'Neck stiffness', 'Dry eyes', 'Wrist pain', 'Shoulder ache', 'Tension headache',

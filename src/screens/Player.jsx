@@ -1,13 +1,15 @@
 import { useEffect, useState } from 'react';
 import { go, Link } from '../lib/router.jsx';
 import { useStore } from '../lib/store.jsx';
-import { MOVES, routineById } from '../data/routines.js';
+import { routineById } from '../data/routines.js';
+
+const clock = (s) => (s >= 60 ? `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}` : `${s}s`);
 import { Icon, PlayGlyph, Ring, Segs, TopBar } from '../components/ui.jsx';
 
 export default function Player({ id, postId }) {
   const { actions, toast } = useStore();
   const routine = routineById(id) || routineById('desk-reset');
-  const moves = routine.moves.map((m) => ({ id: m, ...MOVES[m] }));
+  const moves = routine.moves;
   const [i, setI] = useState(0);
   const [left, setLeft] = useState(moves[0].sec);
   const [running, setRunning] = useState(false);
@@ -99,7 +101,7 @@ export default function Player({ id, postId }) {
 
       <div style={{ marginTop: 'auto', padding: '0 20px 32px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 22 }}>
         <Ring size={132} stroke={8} pct={(1 - left / m.sec) * 100} track="#23252A">
-          <span style={{ fontFamily: 'var(--f-display)', fontSize: 40, fontWeight: 800, letterSpacing: '-.03em' }} aria-live="off">{left}s</span>
+          <span style={{ fontFamily: 'var(--f-display)', fontSize: 40, fontWeight: 800, letterSpacing: '-.03em' }} aria-live="off">{clock(left)}</span>
         </Ring>
         <div className="controls">
           <button className="ctl" onClick={() => jump(Math.max(0, i - 1))} aria-label="Previous move"><Icon name="prev" width={2} /></button>
