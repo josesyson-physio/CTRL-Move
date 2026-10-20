@@ -1,0 +1,19 @@
+{
+  "name": "ctrl-move",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Ctrl+Move — physio in your pocket. Preventive musculoskeletal health for desk workers, by MotionPlus Physio.",
+  "scripts": {
+    "dev": "node build.mjs --serve",
+    "build": "node build.mjs"
+  },
+  "dependencies": {
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.0"
+  },
+  "license": "UNLICENSED"
+}

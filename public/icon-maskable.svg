@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" fill="#0C0D0F"/>
+  <rect x="126" y="196" width="260" height="114" rx="30" fill="#6E8A12"/>
+  <rect x="126" y="186" width="260" height="114" rx="30" fill="#C6F432"/>
+  <text x="256" y="266" text-anchor="middle" font-family="JetBrains Mono, Menlo, monospace" font-weight="700" font-size="72" fill="#0C0D0F">Ctrl</text>
+</svg>
