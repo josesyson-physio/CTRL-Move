@@ -1,41 +1,74 @@
-// Seed posts for the physio feed. `sample: true` posts are placeholders
-// written for the prototype; ask each physio to review or replace them.
+// Feed posts. Articles with `blocks` render as rich, illustrated guides in
+// the reader (see Reader.jsx for the block types).
 
 export const SEED_POSTS = [
   {
-    id: 'p-reel-1', type: 'reel', sample: true, author: 'Dr. Pavithran', role: 'Physiotherapist',
-    hoursAgo: 2, likes: 312, comments: 24, routine: 'desk-reset', length: '0:45',
-    title: '3 moves to undo tech neck',
-    caption: 'Chin tucks, wrist stretch and an eye reset. Do them between calls, not after the pain starts.',
-  },
-  {
-    id: 'p-art-1', type: 'article', sample: true, author: 'Dr. Venkaty', role: 'Physiotherapist',
-    hoursAgo: 26, likes: 188, comments: 9, read: '6 min', tag: 'Posture', cover: 'Desk\nsetup',
-    title: 'Thoracic Alignment: Posture Tips for Ergonomic Desk Setups',
-    caption: 'Simple desk adjustments that ease shoulder knots and neck stiffness during long work days.',
-    body: [
-      'Most desk pain is not caused by one bad posture. It comes from holding any posture for too long.',
-      'Set your screen so the top edge is at or slightly below eye level, about an arm’s length away. If you use a laptop all day, a stand and a separate keyboard make a real difference.',
-      'Keep your elbows close to your sides at roughly a right angle, with wrists straight while you type. Your feet should rest flat on the floor or on a footrest.',
-      'Then forget about perfect posture and change position often. A short movement break every 30 to 45 minutes does more for your upper back than sitting “correctly” for hours.',
-      'If stiffness lasts more than a couple of weeks, or pain spreads into your arm or hand, book a physiotherapy assessment.',
-    ],
-  },
-  {
-    id: 'p-tip-1', type: 'tip', sample: true, author: 'Dr. Jose', role: 'Quick tip', hoursAgo: 72, likes: 241, comments: 12,
-    title: 'Your next posture is your best posture. Change position every 30 to 45 minutes.',
-  },
-  {
-    id: 'p-art-2', type: 'article', sample: true, author: 'Dr. Yaseen', role: 'Physiotherapist',
-    hoursAgo: 96, likes: 157, comments: 6, read: '7 min', tag: 'Cervical', cover: 'Tech\nneck',
-    title: 'Tech Neck: Reversing Cervical Spine Compression',
-    caption: 'Why looking down at screens loads your neck, and the small habits that undo it.',
-    body: [
-      'Every time your head drifts forward to look at a screen, the muscles at the back of your neck work harder to hold it up.',
-      'Over a day, that adds up to stiffness, headaches at the base of the skull, and tight shoulders.',
-      'Bring the screen up to your eyes rather than your eyes down to the screen. Hold your phone higher, and raise your monitor.',
-      'Chin tucks are the simplest reset: sit tall, draw your chin straight back, hold for five seconds, and repeat ten times.',
-      'Numbness, tingling or weakness in the arms is not tech neck. See a clinician promptly if you notice it.',
+    id: 'stroke-recovery',
+    type: 'article',
+    author: 'Dr. Syson Jose S, PT',
+    role: 'Physiotherapist',
+    hoursAgo: 1,
+    likes: 0,
+    comments: 0,
+    read: '12 min',
+    tag: 'Recovery',
+    cover: 'Stroke\nrecovery',
+    reviewed: true,
+    title: 'Stroke Recovery: Evidence-Based Milestones in Modern Rehab',
+    caption: 'A comprehensive medical guide outlining post-stroke physical therapy protocols, neurological plasticity milestones, and home exercises.',
+    blocks: [
+      { type: 'glance', items: [
+        { k: 'Every stroke is different', v: 'No one can predict exactly how much a person will recover.' },
+        { k: 'The brain can learn again', v: 'It is far more capable of healing and adapting than we once believed.' },
+        { k: 'No expiry date', v: 'Many people keep improving for months and even years.' },
+      ] },
+      { type: 'h', text: 'What Science Really Says About Healing After a Stroke' },
+      { type: 'p', text: '"Will my loved one recover?" This is the first question almost every family asks after a stroke. The honest answer is: No one can accurately predict exactly how much a person will recover. Every stroke is different. Some people recover quickly. Some recover slowly. Some need lifelong support.' },
+      { type: 'paths', items: ['Recover quickly', 'Recover slowly', 'Need lifelong support'] },
+      { type: 'p', text: 'But modern rehabilitation has taught us one powerful lesson: The brain is far more capable of healing and adapting than we once believed.' },
+      { type: 'quote', text: 'Recovery is not about waiting for a miracle. It is about creating thousands of opportunities for the brain to learn again.' },
+
+      { type: 'h', text: 'Why This Matters' },
+      { type: 'p', text: 'Many families lose hope because they believe recovery only happens during the first few weeks. That simply isn’t true. Today’s rehabilitation is based on science, not myths.' },
+      { type: 'mythfact',
+        myth: 'Recovery only happens during the first few weeks. Nothing improves after six months.',
+        fact: 'Many people continue improving for months and even years with consistent rehabilitation, exercise, and an active lifestyle.' },
+
+      { type: 'h', text: 'What Does Science Tell Us?' },
+      { type: 'p', text: 'Doctors and therapists worldwide have discovered something encouraging. People recover best when rehabilitation is:' },
+      { type: 'flow', end: 'Best recovery', items: [
+        { t: 'Started early', d: 'As early as medically safe.' },
+        { t: 'Meaningful', d: 'Focused on meaningful daily activities.' },
+        { t: 'Consistent', d: 'Repeated consistently.' },
+        { t: 'Supported', d: 'Supported by family.' },
+        { t: 'Personal', d: 'Tailored to the individual, not copied from someone else’s treatment plan.' },
+      ] },
+      { type: 'p', text: 'Recovery isn’t about doing one magical exercise. It’s about doing the right things, consistently, over time.' },
+
+      { type: 'h', text: 'Understanding the Recovery Journey' },
+      { type: 'timeline', stages: [
+        { when: 'The first month', title: 'The Body Is Waking Up',
+          text: 'This stage is about helping the brain reconnect with the body. Small improvements can be huge victories.',
+          wins: ['A finger moves', 'A shoulder lifts', 'Sits without support'] },
+        { when: 'Months 2–3', title: 'Learning Again',
+          text: 'The brain starts adapting faster. This is why regular therapy matters. The more meaningful practice the brain receives, the better it learns.',
+          wins: ['Sitting balance', 'Standing', 'Walking with support', 'Hand movements', 'Speaking', 'Confidence'] },
+        { when: 'Months 3–6', title: 'Building Independence',
+          text: 'The focus changes from exercises to real life.',
+          transform: [['Lifting a leg', 'Climbing stairs'], ['Squeezing a ball', 'Holding a cup']] },
+        { when: 'Beyond 6 months', title: 'Recovery Doesn’t Have an Expiry Date',
+          text: 'One of the biggest myths is: "Nothing improves after six months." Modern research says otherwise. Many people continue improving for months and even years with consistent rehabilitation, exercise, and an active lifestyle.',
+          wins: ['Months', 'Years'] },
+      ] },
+
+      { type: 'h', text: 'The Emotional Side of Recovery' },
+      { type: 'p', text: 'Recovery isn’t only physical. There will be good days. There will be frustrating days. Some mornings will feel full of hope. Some days may feel discouraging. That is completely normal.' },
+      { type: 'wave' },
+      { type: 'quote', text: 'One of the strongest medicines in rehabilitation isn’t found in a tablet. It’s encouragement.' },
+
+      { type: 'closing', title: 'The Most Important Message',
+        lead: 'A stroke changes life. It does not end it.',
+        text: 'Science continues to prove that the human brain has an incredible ability to adapt, learn, and recover. Every small victory is evidence that hope and rehabilitation can work together.' },
     ],
   },
 ];

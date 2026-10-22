@@ -12,7 +12,7 @@ Items marked `draft: true` were written for the prototype and are waiting for th
 | `bingoGuide.js` | For each square: 5 exercises (instruction, dose, timer length), simple tips and safety advice | Done: from "Bingo for Pain". Timer lengths are estimated from each dose; adjust `sec` if needed |
 | `routines.js` | Quick Relief moves (name, focus, duration, cue, optional `video` URL) and multi-move routines | Physio videos; Eccentric Calf Raises details; Giraffe Neck Stretch (currently "coming soon") |
 | `physios.js` | Physiotherapists in Consult and the feed stories | Names only for now. Add specialty, experience, timings, fees and photo per physio when confirmed |
-| `feed.js` | Seed posts in the feed | Every seed post is `sample: true`. Ask the named physio to approve it or replace it with their own |
+| `feed.js` | Feed posts. Articles can use `blocks` (h, p, quote, glance, paths, mythfact, flow, timeline, wave, closing) to render as illustrated guides | Stroke Recovery by Dr. Syson Jose S, PT is live. More posts to come |
 | `zones.js` | Body map zones and which body system each belongs to | Review only |
 
 ## Scoring rules (in `src/lib/score.js`)
