@@ -164,13 +164,30 @@ export default function Home() {
         </svg>
       </Link>
 
+      <Link to="/posture" className="card dark mx mt14" style={{ padding: 20, display: 'flex', alignItems: 'center', gap: 16 }}>
+        <svg width="74" height="74" viewBox="0 0 74 74" aria-hidden="true" style={{ flex: '0 0 auto' }}>
+          <rect width="74" height="74" rx="20" fill="#132A40" />
+          <path d="M40 16 C 34 26, 30 36, 33 48 S 38 58, 38 62" fill="none" stroke="#2C4560" strokeWidth="2" strokeDasharray="3 4" />
+          {[[40, 20, -14], [37, 29, -10], [34, 38, -4], [33, 47, 2], [35, 56, 10]].map(([x, y, r]) => (
+            <rect key={y} x={x - 7} y={y - 3.5} width="14" height="7" rx="3" fill="#4FE3C1" transform={`rotate(${r} ${x} ${y})`} />
+          ))}
+          <circle cx="44" cy="11" r="4.5" fill="#4FE3C1" />
+        </svg>
+        <span className="grow">
+          <span className="eyebrow" style={{ color: 'var(--lime)', display: 'block' }}>Posture Lab</span>
+          <span style={{ display: 'block', fontFamily: 'var(--f-display)', fontSize: 20, fontWeight: 800, letterSpacing: '-.02em', lineHeight: 1.15, marginTop: 4 }}>Set up your desk for a healthy spine</span>
+          <span style={{ display: 'block', fontSize: 13, color: 'var(--night-text)', marginTop: 6 }}>{Object.values(s.posture || {}).filter(Boolean).length}/6 checkpoints done</span>
+        </span>
+        <Icon name="next" width={2} color="#FFFFFF" />
+      </Link>
+
       <div className="section-head">
         <h2 className="h-section">Play and check</h2>
         <span className="eyebrow">Earn XP</span>
       </div>
       <section className="grid2 mx">
         <Tool to="/bingo" icon="play" title="Pain Bingo" sub="Gamified symptom tracker" meta="5×5 · 12 lines" />
-        <Tool to="/scan" icon="scan" title="Hardware Scan" sub="Know your body in 60 s" meta="6 levels" />
+        <Tool to="/scan" icon="scan" title="Hardware Scan" sub="Know your body in 60\u00a0s" meta="6 levels" />
         <Tool to="/challenge" icon="dumbbell" title="Muscle Challenge" sub="Can your muscles beat it?" meta="8 challenges" />
         <Tool to="/relief" icon="playCircle" title="Quick Relief" sub="Guided physio routines" meta="8 routines" />
       </section>

@@ -25,6 +25,7 @@ export const DEFAULT_STATE = () => ({
   tried: {},
   myPosts: [],
   params: { height: '', weight: '', birthday: '', sex: '' },
+  posture: {}, // desk setup checklist answers
 });
 
 function load() {
@@ -81,6 +82,7 @@ export function StoreProvider({ children }) {
     onboard: ({ name, role }) => update((s) => ({ ...s, onboarded: true, name: name || s.name, role: role || s.role })),
     setName: (name) => update((s) => ({ ...s, name }), { active: false }),
     setRole: (role) => update((s) => ({ ...s, role }), { active: false }),
+    togglePosture: (id) => update((s) => ({ ...s, posture: { ...(s.posture || {}), [id]: !(s.posture || {})[id] } }), { active: false }),
     setParams: (params) => update((s) => ({ ...s, params: { ...s.params, ...params } }), { active: false }),
     addXP: (n) => update((s) => ({ ...s, xp: s.xp + n })),
 

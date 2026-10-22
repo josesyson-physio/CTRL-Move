@@ -18,9 +18,10 @@
   --warm: #FF8A5B;
   --red: #D9401F;
   --deep: #8E1B0E;
-  --f-ui: Inter, system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --f-display: 'Inter Tight', Inter, system-ui, sans-serif;
-  --f-mono: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+  --f-ui: Figtree, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --f-display: 'Schibsted Grotesk', Figtree, system-ui, sans-serif;
+  --f-mono: Figtree, system-ui, sans-serif; /* labels, codes and numbers */
+  --f-brand: 'DM Mono', ui-monospace, Menlo, monospace; /* only the "Ctrl" in the brand name */
   --r-card: 24px;
   --gutter: 20px;
 }
@@ -77,7 +78,7 @@ img, video { max-width: 100%; display: block; }
 .vision .made { margin-top: 30px; font-family: var(--f-mono); font-size: 12px; letter-spacing: .08em; color: var(--ink-2); }
 
 /* ---------- type ---------- */
-.eyebrow { font-family: var(--f-mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-2); }
+.eyebrow { font-family: var(--f-mono); font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-2); }
 .dark .eyebrow, .night .eyebrow, .card.dark .eyebrow { color: var(--night-text); }
 .h-hero { font-family: var(--f-display); font-size: 32px; line-height: 1.05; letter-spacing: -.03em; font-weight: 800; margin: 8px 0 0; }
 .h-screen { font-family: var(--f-display); font-size: 22px; font-weight: 800; letter-spacing: -.02em; margin: 0; }
@@ -86,7 +87,7 @@ img, video { max-width: 100%; display: block; }
 .sub { font-size: 13px; color: var(--ink-2); margin-top: 2px; }
 .dark .sub, .night .sub { color: var(--night-text); }
 .muted { color: var(--ink-2); }
-.mono { font-family: var(--f-mono); }
+.mono { font-family: var(--f-mono); font-variant-numeric: tabular-nums; }
 .big-num { font-family: var(--f-display); font-weight: 800; letter-spacing: -.05em; line-height: .9; }
 
 .section-head { display: flex; align-items: center; justify-content: space-between; margin: 28px var(--gutter) 12px; min-height: 28px; }
@@ -411,8 +412,15 @@ img, video { max-width: 100%; display: block; }
 .wordmark { gap: 8px; }
 .wm-mark { width: 36px; height: 36px; display: block; }
 .wordmark.big .wm-mark { width: 52px; height: 52px; }
-.wm-ctrl { font-family: var(--f-mono); font-weight: 700; letter-spacing: -.02em; margin-right: 1px; }
+.wm-ctrl { font-family: var(--f-brand); font-weight: 700; letter-spacing: -.02em; margin-right: 1px; }
 .splash-mark { width: 150px; height: 150px; display: block; margin-left: -18px; filter: drop-shadow(0 0 28px rgba(79, 227, 193, .18)); }
 .splash .move { font-size: 64px; margin-top: 6px; }
-.splash .move-ctrl { font-family: var(--f-mono); font-weight: 700; letter-spacing: -.04em; color: var(--lime); }
+.splash .move-ctrl { font-family: var(--f-brand); font-weight: 700; letter-spacing: -.04em; color: var(--lime); }
 .splash .waves { top: -110px; bottom: auto; }
+
+/* ---------- type polish ---------- */
+body { font-feature-settings: 'ss01', 'cv11'; }
+h1, h2, h3, .h-hero, .h-screen, .h-section, .big-num, .timer-num { font-family: var(--f-display); }
+.h-hero { letter-spacing: -.035em; }
+.big-num, .timer-num, .stat .n, .sys-bar .v, .xp-tag, .xp-pill { font-variant-numeric: tabular-nums; }
+.tag { letter-spacing: .08em; }

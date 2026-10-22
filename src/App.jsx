@@ -7,6 +7,7 @@ import Splash from './screens/Splash.jsx';
 import Home from './screens/Home.jsx';
 import PainMap from './screens/PainMap.jsx';
 import Bingo from './screens/Bingo.jsx';
+import Posture from './screens/Posture.jsx';
 import BingoSymptom from './screens/BingoSymptom.jsx';
 import Scan from './screens/Scan.jsx';
 import ScanResult from './screens/ScanResult.jsx';
@@ -33,6 +34,7 @@ function Screen() {
   else if (!s.onboarded || path === '/') el = s.onboarded ? <Home /> : <Splash />;
   else if (path === '/home') el = <Home />;
   else if (path === '/track') el = <PainMap />;
+  else if (path === '/posture') el = <Posture />;
   else if (path === '/bingo') el = <Bingo />;
   else if ((p = match('/bingo/:slug', path))) el = <BingoSymptom slug={p.slug} />;
   else if (path === '/scan') el = <Scan />;
