@@ -1,3 +1,5 @@
+import ShotCard from '../components/ShotCard.jsx';
+import { allShots } from '../lib/people.js';
 import { Link, go } from '../lib/router.jsx';
 import { useStore, useTicker } from '../lib/store.jsx';
 import { dayKey, greeting, levelProgress, streakOf, systemStatus, weekDays } from '../lib/score.js';
@@ -193,6 +195,9 @@ export default function Home() {
         <Tool to="/relief" icon="playCircle" title="Quick Relief" sub="Guided physio routines" meta="8 routines" />
       </section>
 
+      <div className="section-head"><h2 className="h-section" style={{ fontSize: 20 }}>Health Shots</h2><Link to="/shots">Watch</Link></div>
+      <div className="h-scroll">{allShots(s).slice(0, 6).map((sh) => <ShotCard key={sh.id} sh={sh} s={s} />)}</div>
+
       <Link to="/consult" className="card mx mt12 row" style={{ padding: 16, gap: 14 }}>
         <span className="avatars">
           <span style={{ background: 'var(--ink)', color: '#fff' }}>J</span>
@@ -200,8 +205,8 @@ export default function Home() {
           <span style={{ background: 'var(--lime)' }}>V</span>
         </span>
         <span className="grow">
-          <b style={{ display: 'block', fontSize: 16 }}>Consult a physio</b>
-          <span className="sub" style={{ display: 'block' }}>Request a session</span>
+          <b style={{ display: 'block', fontSize: 16 }}>Tele-therapy</b>
+          <span className="sub" style={{ display: 'block' }}>1:1 video, group classes and chat</span>
         </span>
         <Icon name="next" width={2} />
       </Link>
@@ -209,7 +214,7 @@ export default function Home() {
       <section className="card dark mx mt14 row" style={{ padding: 20, gap: 14 }}>
         <div className="grow">
           <div style={{ fontWeight: 700, fontSize: 16 }}>Talk to a physiotherapist</div>
-          <div style={{ fontSize: 13, color: 'var(--night-text)', marginTop: 4, lineHeight: 1.4 }}>Request a consult with our physiotherapists</div>
+          <div style={{ fontSize: 13, color: 'var(--night-text)', marginTop: 4, lineHeight: 1.4 }}>Video sessions, group classes and chat with physios</div>
         </div>
         <button className="btn lime sm" style={{ height: 48 }} onClick={() => go('/consult?match=1')}>Find</button>
       </section>

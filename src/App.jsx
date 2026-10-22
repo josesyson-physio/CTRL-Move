@@ -20,6 +20,13 @@ import PhysioUpload from './screens/PhysioUpload.jsx';
 import Consult from './screens/Consult.jsx';
 import Profile from './screens/Profile.jsx';
 import Mission from './screens/Mission.jsx';
+import Shots from './screens/Shots.jsx';
+import PhysioProfile from './screens/PhysioProfile.jsx';
+import Exercise from './screens/Exercise.jsx';
+import { ChatInbox, ChatThread } from './screens/Chat.jsx';
+import Book from './screens/Book.jsx';
+import Session from './screens/Session.jsx';
+import Studio, { StudioExercise, StudioGroup, StudioThread } from './screens/Studio.jsx';
 
 function Screen() {
   const { path, query } = useRoute();
@@ -43,9 +50,20 @@ function Screen() {
   else if (path === '/relief') el = <Relief />;
   else if ((p = match('/play/:id', path))) el = <Player key={p.id + (query.get('post') || '')} id={p.id} postId={query.get('post')} />;
   else if (path === '/feed') el = <Feed />;
-  else if (path === '/feed/new') el = <PhysioUpload />;
+  else if (path === '/feed/new') el = <PhysioUpload key={query.get('type') || ''} initialType={query.get('type')} />;
+  else if (path === '/shots') el = <Shots start={query.get('i')} />;
   else if ((p = match('/feed/:id', path))) el = <Reader id={p.id} />;
-  else if (path === '/consult') el = <Consult />;
+  else if (path === '/consult') el = <Consult key={query.get('tab') || ''} tab={query.get('tab')} />;
+  else if ((p = match('/physio/:id', path))) el = <PhysioProfile key={p.id} id={p.id} />;
+  else if ((p = match('/ex/:id', path))) el = <Exercise key={p.id} id={p.id} />;
+  else if (path === '/chat') el = <ChatInbox />;
+  else if ((p = match('/chat/:id', path))) el = <ChatThread key={p.id} id={p.id} />;
+  else if ((p = match('/book/:id', path))) el = <Book key={p.id} id={p.id} />;
+  else if ((p = match('/session/:id', path))) el = <Session key={p.id} id={p.id} />;
+  else if (path === '/studio') el = <Studio />;
+  else if (path === '/studio/exercise') el = <StudioExercise />;
+  else if (path === '/studio/group') el = <StudioGroup />;
+  else if ((p = match('/studio/inbox/:id', path))) el = <StudioThread key={p.id} id={p.id} />;
   else if (path === '/profile') el = <Profile />;
   else el = <Home />;
 

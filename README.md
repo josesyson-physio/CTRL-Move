@@ -104,3 +104,14 @@ public/         index.html, manifest, service worker, icons
 ---
 
 <p align="center">Made by <b>MotionPlus Physio</b> · Shimoga · Hyderabad · Bijapur</p>
+
+## Care features (Health Shots, chat, tele-therapy, Physio Studio)
+
+- **Health Shots**: vertical clips of 60 s or less (`/shots`). Sample shots use the animated demo figure until physios upload video.
+- **Chat**: members always start the conversation; physios can only reply (`/chat`, Studio inbox).
+- **Tele-therapy**: 1:1 booking requests, group sessions with seat limits, and a session room (`/consult`, `/book/:physio`, `/session/:id`).
+- **Physio Studio** (`/studio`): story-insight composer with a required ethics check, Health Shot upload, exercise library (AI demo, own video, virtual demo) and group-session hosting.
+
+These run on-device today. To go live between phones they need a backend:
+auth + database (e.g. Supabase or Firebase), file storage for videos, realtime chat,
+a video service for sessions (e.g. 100ms, Agora, Daily or Jitsi), and the clinic's calendar for confirmed slots.

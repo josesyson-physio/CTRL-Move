@@ -305,4 +305,4 @@ export const SEED_POSTS = [
   },
 ];
 
-export const FEED_TABS = ['For you', 'Reels', 'Articles', 'Saved'];
+export const FEED_TABS = ['For you', 'Health Shots', 'Articles', 'Saved'];

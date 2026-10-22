@@ -9,7 +9,7 @@ export default function Splash() {
 
   const start = (role) => {
     actions.onboard({ name: name.trim(), role });
-    go(role === 'physio' ? '/feed/new' : '/home');
+    go(role === 'physio' ? '/studio' : '/home');
   };
 
   return (

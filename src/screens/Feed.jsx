@@ -5,6 +5,8 @@ import { FEED_TABS, SEED_POSTS } from '../data/feed.js';
 import { PHYSIOS } from '../data/physios.js';
 import { Icon, PlayGlyph, TabBar, Verified } from '../components/ui.jsx';
 import { Cover, hasCover } from '../components/covers.jsx';
+import ShotCard from '../components/ShotCard.jsx';
+import { allShots } from '../lib/people.js';
 
 const ago = (h) => (h < 1 ? 'now' : h < 24 ? `${h}h` : `${Math.round(h / 24)}d`);
 
@@ -12,22 +14,27 @@ export default function Feed() {
   const { s, actions } = useStore();
   const [tab, setTab] = useState('For you');
   const mine = s.myPosts.map((p) => ({ ...p, hoursAgo: Math.round((Date.now() - p.at) / 3600000) }));
-  const all = [...mine, ...SEED_POSTS];
-  const posts = all.filter((p) =>
-    tab === 'For you' ? true : tab === 'Reels' ? p.type === 'reel' || p.type === 'routine' : tab === 'Articles' ? p.type === 'article' : !!s.saved[p.id]);
+  const all = [...mine, ...SEED_POSTS].filter((p) => p.type !== 'shot');
+  const shots = allShots(s);
+  const posts = tab === 'Health Shots' ? [] : all.filter((p) =>
+    tab === 'For you' ? true : tab === 'Articles' ? p.type === 'article' || p.type === 'insight' : !!s.saved[p.id]);
+  const shotList = tab === 'Saved' ? shots.filter((x) => s.saved[x.id]) : shots;
 
   return (
     <main className="screen">
       <header className="home-head">
         <h1 style={{ margin: 0, fontFamily: 'var(--f-display)', fontSize: 32, fontWeight: 800, letterSpacing: '-.03em' }}>Feed</h1>
-        <Link to="/feed/new" className="icon-btn" style={{ background: 'var(--ink)', borderColor: 'var(--ink)' }} aria-label="Create post (physios)">
-          <Icon name="plus" color="#4FE3C1" width={2.2} />
-        </Link>
+        <span className="row" style={{ gap: 8 }}>
+          <Link to="/chat" className="icon-btn" aria-label="Chats with physios"><Icon name="comment" /></Link>
+          <Link to={s.role === 'physio' ? '/studio' : '/feed/new'} className="icon-btn" style={{ background: 'var(--ink)', borderColor: 'var(--ink)' }} aria-label="Create post (physios)">
+            <Icon name="plus" color="#4FE3C1" width={2.2} />
+          </Link>
+        </span>
       </header>
 
       <section className="stories" aria-label="Physios">
         {PHYSIOS.slice(0, 6).map((p, i) => (
-          <Link key={p.id} to="/consult" className="story">
+          <Link key={p.id} to={`/physio/${p.id}`} className="story">
             <span className={'ring-s' + (i < 3 ? ' new' : '')}>
               <span style={{ background: i % 2 ? '#fff' : 'var(--ink)', color: i % 2 ? 'var(--ink)' : '#fff' }}>{p.name.replace('Dr. ', '').slice(0, 1)}</span>
             </span>
@@ -40,7 +47,22 @@ export default function Feed() {
         {FEED_TABS.map((t) => <button key={t} className={t === tab ? 'on' : ''} aria-pressed={t === tab} onClick={() => setTab(t)}>{t}</button>)}
       </div>
 
-      {posts.length === 0 && (
+      {(tab === 'For you' || (tab === 'Saved' && shotList.length > 0)) && (
+        <>
+          <div className="section-head" style={{ marginTop: 20 }}>
+            <h2 className="h-section" style={{ fontSize: 18 }}>Health Shots</h2>
+            {tab === 'For you' && <button onClick={() => setTab('Health Shots')}>See all</button>}
+          </div>
+          <div className="h-scroll">{shotList.map((sh) => <ShotCard key={sh.id} sh={sh} s={s} />)}</div>
+        </>
+      )}
+      {tab === 'Health Shots' && (
+        <>
+          <p className="muted mx mt14" style={{ fontSize: 14, lineHeight: 1.5 }}>Under 60 seconds. One problem, its real cause, and one move to fix it.</p>
+          <div className="shot-grid mx mt12">{shots.map((sh) => <ShotCard key={sh.id} sh={sh} s={s} wide />)}</div>
+        </>
+      )}
+      {tab !== 'Health Shots' && posts.length === 0 && shotList.length === 0 && (
         <p className="muted mx mt24" style={{ textAlign: 'center' }}>{tab === 'Saved' ? 'Tap the bookmark on a post to save it here.' : 'Nothing here yet.'}</p>
       )}
 
@@ -93,7 +115,7 @@ function Post({ p, s, actions }) {
     );
   }
 
-  if (p.type === 'article') {
+  if (p.type === 'article' || p.type === 'insight') {
     return (
       <article className="card flush mx mt14" style={{ borderRadius: 26 }}>
         {head}
@@ -106,6 +128,7 @@ function Post({ p, s, actions }) {
           <Link to={`/feed/${p.id}`} className="article-cover" style={{ background: 'var(--lime)' }}>
             <span className="eyebrow" style={{ color: 'var(--ink)' }}>{p.tag} · {p.read} read</span>
             <span className="t">{p.cover || p.title.split(':')[0]}</span>
+            {p.type === 'insight' && <span className="eyebrow" style={{ color: 'var(--ink)', marginTop: 10, display: 'block' }}>Story insight</span>}
           </Link>
         )}
         <div style={{ padding: '14px 16px 4px' }}>

@@ -3,6 +3,7 @@ import { useStore } from '../lib/store.jsx';
 import { SEED_POSTS } from '../data/feed.js';
 import { Icon, TopBar, Verified } from '../components/ui.jsx';
 import { Cover, hasCover } from '../components/covers.jsx';
+import { postPhysio } from '../lib/people.js';
 
 export default function Reader({ id }) {
   const { s, actions } = useStore();
@@ -52,7 +53,12 @@ export default function Reader({ id }) {
           </span>
         </div>
         <p className="muted" style={{ fontSize: 13, lineHeight: 1.5 }}>This guide is for education. Every recovery plan should be set by your own medical and rehabilitation team.</p>
-        <Link to="/consult" className="btn ink block mt14">Talk to a physiotherapist</Link>
+        {postPhysio(p) && postPhysio(p) !== 'me' ? (
+          <div className="grid2 mt14">
+            <Link to={`/chat/${postPhysio(p)}`} className="btn md"><Icon name="comment" size={18} /> Ask the author</Link>
+            <Link to={`/book/${postPhysio(p)}`} className="btn md ink"><Icon name="video" size={18} /> Book a session</Link>
+          </div>
+        ) : <Link to="/consult" className="btn ink block mt14">Talk to a physiotherapist</Link>}
       </article>
     </main>
   );

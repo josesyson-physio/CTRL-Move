@@ -26,6 +26,12 @@ export const DEFAULT_STATE = () => ({
   myPosts: [],
   params: { height: '', weight: '', birthday: '', sex: '' },
   posture: {}, // desk setup checklist answers
+  bookings: [], // tele-therapy requests
+  seats: {}, // group sessions reserved
+  chats: {}, // physioId -> messages (member always starts)
+  inbox: {}, // physio mode: replies to member threads
+  library: [], // physio mode: own exercise library
+  groups: [], // physio mode: group sessions hosted
 });
 
 function load() {
@@ -145,6 +151,21 @@ export function StoreProvider({ children }) {
     book: (id) => update((s) => ({ ...s, booked: { ...s.booked, [id]: s.booked[id] ? null : Date.now() } }), { active: false }),
     like: (id) => update((s) => ({ ...s, likes: { ...s.likes, [id]: !s.likes[id] } }), { active: false }),
     save: (id) => update((s) => ({ ...s, saved: { ...s.saved, [id]: !s.saved[id] } }), { active: false }),
+    requestBooking: (b) => update((s) => ({ ...s, bookings: [{ ...b, id: 'bk-' + Date.now(), at: Date.now(), status: 'requested' }, ...(s.bookings || [])] }), { active: false }),
+    cancelBooking: (id) => update((s) => ({ ...s, bookings: (s.bookings || []).filter((b) => b.id !== id) }), { active: false }),
+    toggleSeat: (id) => update((s) => ({ ...s, seats: { ...(s.seats || {}), [id]: !(s.seats || {})[id] } }), { active: false }),
+    // Members start every chat. The first message gets an automatic, clearly
+    // labelled acknowledgement until the physio replies.
+    sendChat: (physioId, text, physioName) => update((s) => {
+      const prev = (s.chats || {})[physioId] || [];
+      const msgs = [...prev, { from: 'me', text, at: Date.now() }];
+      if (!prev.length) msgs.push({ from: 'auto', text: `Thanks for reaching out. ${physioName || 'Your physio'} will reply here, usually within 24 hours. If this is urgent, call 112.`, at: Date.now() + 1 });
+      return { ...s, chats: { ...(s.chats || {}), [physioId]: msgs } };
+    }, { active: false }),
+    physioReply: (threadId, text) => update((s) => ({ ...s, inbox: { ...(s.inbox || {}), [threadId]: [...((s.inbox || {})[threadId] || []), { from: 'physio', text, at: Date.now() }] } }), { active: false }),
+    addExercise: (ex) => update((s) => ({ ...s, library: [{ ...ex, id: 'my-' + Date.now(), physio: 'me' }, ...(s.library || [])] }), { active: false }),
+    removeExercise: (id) => update((s) => ({ ...s, library: (s.library || []).filter((x) => x.id !== id) }), { active: false }),
+    addGroup: (g) => update((s) => ({ ...s, groups: [{ ...g, id: 'mg-' + Date.now(), physio: 'me', taken: 0 }, ...(s.groups || [])] }), { active: false }),
     publish: (post) => update((s) => ({ ...s, myPosts: [{ ...post, id: 'mine-' + Date.now(), at: Date.now(), likes: 0, comments: 0, pending: true }, ...s.myPosts] })),
 
     exportData: () => JSON.stringify(state, null, 2),

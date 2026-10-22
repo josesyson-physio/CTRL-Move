@@ -105,7 +105,9 @@ export default function Profile() {
         <button className="link-row" onClick={() => { actions.setRole(s.role === 'physio' ? 'user' : 'physio'); toast(s.role === 'physio' ? 'Switched to member mode' : 'Physio mode on · verification pending'); }}>
           {s.role === 'physio' ? 'Switch to member mode' : "I'm a physiotherapist"} <Icon name="next" size={18} width={2} />
         </button>
-        <Link to="/consult" className="link-row">Share my progress with a physio <Icon name="next" size={18} width={2} /></Link>
+        {s.role === 'physio' && <Link to="/studio" className="link-row">Physio Studio <Icon name="next" size={18} width={2} /></Link>}
+        <Link to="/consult?tab=my" className="link-row">My tele-therapy sessions <Icon name="next" size={18} width={2} /></Link>
+        <Link to="/chat" className="link-row">My chats with physios <Icon name="next" size={18} width={2} /></Link>
         <button className="link-row" onClick={exportData}>Export my data <Icon name="download" size={18} /></button>
         <button className="link-row" style={{ color: 'var(--red)' }} onClick={() => setConfirm(true)}>Reset all data <Icon name="next" size={18} width={2} /></button>
       </section>
