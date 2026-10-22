@@ -4,6 +4,7 @@ import { dayKey, greeting, levelProgress, streakOf, systemStatus, weekDays } fro
 import { SEED_POSTS } from '../data/feed.js';
 import { AREAS } from '../data/zones.js';
 import { Bolt, Icon, TabBar, Wordmark } from '../components/ui.jsx';
+import { Cover, hasCover } from '../components/covers.jsx';
 
 const DOW = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
 
@@ -220,10 +221,14 @@ export default function Home() {
       <section className="h-scroll">
         {insights.map((p, i) => (
           <Link key={p.id} to={`/feed/${p.id}`} className="card flush insight">
-            <div className={'cover ' + (i % 2 ? 'lime' : 'night')}>
-              <span className="eyebrow">{p.tag}</span>
-              <span className="t">{p.cover}</span>
-            </div>
+            {hasCover(p.art) ? (
+              <div className="cover-art"><Cover art={p.art} /></div>
+            ) : (
+              <div className={'cover ' + (i % 2 ? 'lime' : 'night')}>
+                <span className="eyebrow">{p.tag}</span>
+                <span className="t">{p.cover}</span>
+              </div>
+            )}
             <div style={{ padding: '14px 16px 16px' }}>
               <div style={{ fontWeight: 700, fontSize: 15, lineHeight: 1.3 }}>{p.title}</div>
               <div className="sub" style={{ marginTop: 8 }}>{p.read} read · {p.author}</div>

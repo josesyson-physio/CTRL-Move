@@ -3,8 +3,67 @@
 
 export const SEED_POSTS = [
   {
+    id: 'tech-neck',
+    type: 'article',
+    art: 'techneck',
+    author: 'Dr. Syson Jose S, PT',
+    role: 'Physiotherapist',
+    hoursAgo: 0,
+    likes: 0,
+    comments: 0,
+    read: '7 min',
+    tag: 'Pain care',
+    cover: 'Tech\nneck',
+    reviewed: true,
+    title: 'Tech Neck: Reversing Cervical Spine Compression',
+    caption: 'Biomechanical analysis of cellular posture strain and simple exercises to alleviate headaches and upper back pain.',
+    blocks: [
+      { type: 'glance', items: [
+        { k: 'It’s the other 23 hours', v: 'The real problem is often what happens outside the one hour in the clinic.' },
+        { k: 'Forward head, more work', v: 'The further your head moves forward, the harder your muscles, joints and discs work.' },
+        { k: 'No magical pillow', v: 'The magic lies in changing how you move throughout the day.' },
+      ] },
+      { type: 'h', text: 'Reversing Cervical Spine Compression with Smart Rehabilitation' },
+      { type: 'p', text: '"Why does my neck pain keep coming back even after taking physiotherapy, painkillers, or getting temporary relief?" This is one of the most common questions in today’s digital world.' },
+      { type: 'p', text: 'You complete a therapy session. Your pain reduces. You feel fantastic. The next morning… The pain is back. Did the treatment fail? Not necessarily.' },
+      { type: 'dayring', caption: 'The real problem often isn’t what happens during the one hour you spend in the clinic. It’s what happens during the other 23 hours.' },
+
+      { type: 'h', text: 'Why It Matters' },
+      { type: 'p', text: 'The average person now spends 6–10 hours every day looking down at a phone, laptop, or tablet. Your head weighs about 5 kg. When your neck bends forward, the force acting on your cervical spine increases.' },
+      { type: 'headload' },
+      { type: 'p', text: 'The further your head moves forward, the harder your muscles, joints, and discs have to work. Eventually, the body starts sending warning signals. That warning signal is pain.' },
+
+      { type: 'h', text: 'Current Scientific Evidence' },
+      { type: 'p', text: 'Modern research shows that persistent neck pain is rarely caused by one single factor. Instead, it is usually a combination of:' },
+      { type: 'converge', to: 'Persistent neck pain', items: ['Prolonged poor posture', 'Reduced movement during the day', 'Weak deep neck muscles', 'Tight chest and shoulder muscles', 'Stress', 'Poor sleep', 'Lack of movement variety'] },
+      { type: 'p', text: 'Most "Tech Neck" problems respond well to education, exercise, movement correction, and consistent habits.' },
+      { type: 'quote', text: 'There is no magical pillow. There is no magical chair. The magic lies in changing how you move throughout the day.' },
+
+      { type: 'h', text: 'Clinical Pearl' },
+      { type: 'p', text: 'Pain relief is not the finish line. It is the beginning of recovery. The real goal is changing the habits that caused the pain in the first place.' },
+      { type: 'flow', end: 'Movement behaviour changed', items: [
+        { t: 'Pain relief', d: 'Not the finish line. The beginning of recovery.' },
+        { t: 'Change the habits', d: 'The habits that caused the pain in the first place.' },
+        { t: 'Change movement', d: 'A successful program doesn’t simply reduce symptoms.' },
+      ] },
+
+      { type: 'h', text: 'MotionPlus Protocol' },
+      { type: 'p', text: 'At MotionPlus, we believe rehabilitation doesn’t end when the patient leaves the clinic. We follow a Clinic + Lifestyle + Technology approach.' },
+      { type: 'triad', items: ['Clinic', 'Lifestyle', 'Technology'] },
+
+      { type: 'h', text: 'AI Insight – Closing the 23-Hour Gap' },
+      { type: 'p', text: 'Traditional rehabilitation shows us what happens inside the clinic. The future of rehabilitation tells us what happens outside the clinic. Imagine a smart rehabilitation system that can detect prolonged forward-head posture and remind you to reset your posture before pain begins.' },
+      { type: 'flow', end: 'Reset before pain begins', items: [
+        { t: 'Detect', d: 'Prolonged forward-head posture.' },
+        { t: 'Remind', d: 'Reset your posture.' },
+      ] },
+      { type: 'cta', title: 'Start closing your 23-hour gap', text: 'Set up your desk in the Posture Lab and let the work-block timer remind you to move.', to: '/posture', label: 'Open Posture Lab' },
+    ],
+  },
+  {
     id: 'stroke-recovery',
     type: 'article',
+    art: 'stroke',
     author: 'Dr. Syson Jose S, PT',
     role: 'Physiotherapist',
     hoursAgo: 1,

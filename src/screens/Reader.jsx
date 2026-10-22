@@ -2,6 +2,7 @@ import { Link } from '../lib/router.jsx';
 import { useStore } from '../lib/store.jsx';
 import { SEED_POSTS } from '../data/feed.js';
 import { Icon, TopBar, Verified } from '../components/ui.jsx';
+import { Cover, hasCover } from '../components/covers.jsx';
 
 export default function Reader({ id }) {
   const { s, actions } = useStore();
@@ -26,6 +27,7 @@ export default function Reader({ id }) {
             <Icon name="bookmark" fill={saved ? '#4FE3C1' : 'none'} color={saved ? '#4FE3C1' : '#FFFFFF'} />
           </button>
         </div>
+        {hasCover(p.art) && <div className="art-cover"><Cover art={p.art} /></div>}
         <span className="eyebrow mt24" style={{ display: 'block', color: 'var(--lime)' }}>{p.tag || 'Guide'}{p.read ? ` · ${p.read} read` : ''}{p.reviewed ? ' · Medically reviewed' : ''}</span>
         <h1>{p.title}</h1>
         {p.caption && <p className="art-lead">{p.caption}</p>}
@@ -174,6 +176,79 @@ function Block({ b }) {
           </svg>
           <figcaption>Good days and frustrating days are both part of the journey.</figcaption>
         </figure>
+      );
+    case 'dayring': {
+      const R = 54; const C = 2 * Math.PI * R;
+      return (
+        <figure className="art-fig art-day" aria-label="One hour in the clinic, twenty-three hours outside it">
+          <svg viewBox="0 0 140 140" width="140" height="140" aria-hidden="true">
+            <circle cx="70" cy="70" r={R} fill="none" stroke="#E3FAF4" strokeWidth="16" />
+            <circle cx="70" cy="70" r={R} fill="none" stroke="#4FE3C1" strokeWidth="16" strokeDasharray={`${(C * 23) / 24} ${C}`} transform="rotate(-75 70 70)" />
+            <circle cx="70" cy="70" r={R} fill="none" stroke="#0B1B2B" strokeWidth="16" strokeDasharray={`${C / 24} ${C}`} transform="rotate(-90 70 70)" />
+            <text x="70" y="68" textAnchor="middle" fontSize="26" fontWeight="800" fill="#0B1B2B" fontFamily="var(--f-display)">24h</text>
+            <text x="70" y="86" textAnchor="middle" fontSize="10" fontWeight="700" fill="#4A4F58" fontFamily="var(--f-ui)">YOUR DAY</text>
+          </svg>
+          <div className="day-legend">
+            <span><i style={{ background: '#0B1B2B' }} /><b>1 hour</b> in the clinic</span>
+            <span><i style={{ background: '#4FE3C1' }} /><b>23 hours</b> everywhere else</span>
+          </div>
+          <figcaption style={{ textAlign: 'left' }}>{b.caption}</figcaption>
+        </figure>
+      );
+    }
+    case 'headload':
+      return (
+        <figure className="art-fig" aria-label="The further the head moves forward, the harder the neck has to work">
+          <svg viewBox="0 0 330 150" width="100%" aria-hidden="true">
+            {[0, 1, 2].map((i) => {
+              const x = 55 + i * 110; const lean = i * 14;
+              return (
+                <g key={i}>
+                  <path d={`M${x - 30} 120 C ${x - 20} 110, ${x + 20} 110, ${x + 30} 120`} fill="none" stroke="#C9D3DC" strokeWidth="8" strokeLinecap="round" />
+                  <line x1={x} y1="112" x2={x + lean * 0.9} y2="78" stroke={['#4FE3C1', '#FFA77A', '#D9401F'][i]} strokeWidth="7" strokeLinecap="round" />
+                  <circle cx={x + lean * 1.4} cy={62 + i * 3} r="17" fill="#0B1B2B" />
+                  <rect x={x - 26} y="134" width="52" height="6" rx="3" fill="#E4E6EA" />
+                  <rect x={x - 26} y="134" width={[16, 34, 52][i]} height="6" rx="3" fill={['#4FE3C1', '#FFA77A', '#D9401F'][i]} />
+                </g>
+              );
+            })}
+          </svg>
+          <div className="load-labels"><span>Upright</span><span>Leaning in</span><span>Head far forward</span></div>
+          <figcaption>Further forward means your neck works harder. The bar shows the load rising.</figcaption>
+        </figure>
+      );
+    case 'converge':
+      return (
+        <figure className="art-converge">
+          <div className="cv-chips">{b.items.map((t) => <span key={t}>{t}</span>)}</div>
+          <svg viewBox="0 0 300 40" width="100%" height="40" aria-hidden="true">
+            <path d="M30 0 C 30 24, 150 16, 150 38 M150 0 V38 M270 0 C 270 24, 150 16, 150 38" fill="none" stroke="#C9D3DC" strokeWidth="2" />
+          </svg>
+          <div className="cv-to">{b.to}</div>
+          <figcaption>Usually a combination, rarely one single factor.</figcaption>
+        </figure>
+      );
+    case 'triad':
+      return (
+        <figure className="art-triad" aria-label={b.items.join(' plus ')}>
+          {b.items.map((t, i) => (
+            <span key={t} className="tri-wrap">
+              {i > 0 && <span className="tri-plus" aria-hidden="true">+</span>}
+              <span className="tri" style={{ background: ['#0B1B2B', '#4FE3C1', '#E3FAF4'][i], color: i === 0 ? '#4FE3C1' : '#0B1B2B' }}>
+                <Icon name={['home', 'pulse', 'spark'][i]} size={20} width={2} />
+                {t}
+              </span>
+            </span>
+          ))}
+        </figure>
+      );
+    case 'cta':
+      return (
+        <section className="art-cta">
+          <b>{b.title}</b>
+          <span>{b.text}</span>
+          <Link to={b.to} className="btn lime md block mt12">{b.label}</Link>
+        </section>
       );
     case 'closing':
       return (

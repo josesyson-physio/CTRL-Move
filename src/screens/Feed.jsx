@@ -4,6 +4,7 @@ import { useStore } from '../lib/store.jsx';
 import { FEED_TABS, SEED_POSTS } from '../data/feed.js';
 import { PHYSIOS } from '../data/physios.js';
 import { Icon, PlayGlyph, TabBar, Verified } from '../components/ui.jsx';
+import { Cover, hasCover } from '../components/covers.jsx';
 
 const ago = (h) => (h < 1 ? 'now' : h < 24 ? `${h}h` : `${Math.round(h / 24)}d`);
 
@@ -96,10 +97,17 @@ function Post({ p, s, actions }) {
     return (
       <article className="card flush mx mt14" style={{ borderRadius: 26 }}>
         {head}
-        <Link to={`/feed/${p.id}`} className="article-cover" style={{ background: 'var(--lime)' }}>
-          <span className="eyebrow" style={{ color: 'var(--ink)' }}>{p.tag} · {p.read} read</span>
-          <span className="t">{p.cover || p.title.split(':')[0]}</span>
-        </Link>
+        {hasCover(p.art) ? (
+          <Link to={`/feed/${p.id}`} className="feed-cover">
+            <Cover art={p.art} />
+            <span className="eyebrow">{p.tag} · {p.read} read</span>
+          </Link>
+        ) : (
+          <Link to={`/feed/${p.id}`} className="article-cover" style={{ background: 'var(--lime)' }}>
+            <span className="eyebrow" style={{ color: 'var(--ink)' }}>{p.tag} · {p.read} read</span>
+            <span className="t">{p.cover || p.title.split(':')[0]}</span>
+          </Link>
+        )}
         <div style={{ padding: '14px 16px 4px' }}>
           <div style={{ fontWeight: 700, fontSize: 16, lineHeight: 1.3 }}>{p.title}</div>
           <p className="muted" style={{ margin: '6px 0 0', fontSize: 14, lineHeight: 1.5 }}>{p.caption}</p>
