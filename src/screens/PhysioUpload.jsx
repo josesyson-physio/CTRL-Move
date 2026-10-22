@@ -81,7 +81,7 @@ export default function PhysioUpload() {
           media.kind === 'video' ? <video src={media.url} muted playsInline autoPlay loop /> : <img src={media.url} alt="Selected cover" />
         ) : (
           <>
-            <span style={{ width: 52, height: 52, borderRadius: 16, background: 'var(--ink)', display: 'grid', placeItems: 'center' }}><Icon name="upload" color="#C6F432" width={2} size={22} /></span>
+            <span style={{ width: 52, height: 52, borderRadius: 16, background: 'var(--ink)', display: 'grid', placeItems: 'center' }}><Icon name="upload" color="#4FE3C1" width={2} size={22} /></span>
             <b style={{ fontSize: 15 }}>{label}</b>
             <span className="sub">{hint}</span>
           </>

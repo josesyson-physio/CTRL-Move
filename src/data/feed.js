@@ -3,13 +3,13 @@
 
 export const SEED_POSTS = [
   {
-    id: 'p-reel-1', type: 'reel', sample: true, author: 'Dr. Pavithran', role: 'Sports physiologist and coach',
+    id: 'p-reel-1', type: 'reel', sample: true, author: 'Dr. Pavithran', role: 'Physiotherapist',
     hoursAgo: 2, likes: 312, comments: 24, routine: 'desk-reset', length: '0:45',
     title: '3 moves to undo tech neck',
     caption: 'Chin tucks, wrist stretch and an eye reset. Do them between calls, not after the pain starts.',
   },
   {
-    id: 'p-art-1', type: 'article', sample: true, author: 'Dr. Venkaty', role: 'Ortho and neuro specialist',
+    id: 'p-art-1', type: 'article', sample: true, author: 'Dr. Venkaty', role: 'Physiotherapist',
     hoursAgo: 26, likes: 188, comments: 9, read: '6 min', tag: 'Posture', cover: 'Desk\nsetup',
     title: 'Thoracic Alignment: Posture Tips for Ergonomic Desk Setups',
     caption: 'Simple desk adjustments that ease shoulder knots and neck stiffness during long work days.',
@@ -26,7 +26,7 @@ export const SEED_POSTS = [
     title: 'Your next posture is your best posture. Change position every 30 to 45 minutes.',
   },
   {
-    id: 'p-art-2', type: 'article', sample: true, author: 'Dr. Yaseen', role: 'Ortho and neuro practitioner',
+    id: 'p-art-2', type: 'article', sample: true, author: 'Dr. Yaseen', role: 'Physiotherapist',
     hoursAgo: 96, likes: 157, comments: 6, read: '7 min', tag: 'Cervical', cover: 'Tech\nneck',
     title: 'Tech Neck: Reversing Cervical Spine Compression',
     caption: 'Why looking down at screens loads your neck, and the small habits that undo it.',

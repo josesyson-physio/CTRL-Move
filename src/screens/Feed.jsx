@@ -20,7 +20,7 @@ export default function Feed() {
       <header className="home-head">
         <h1 style={{ margin: 0, fontFamily: 'var(--f-display)', fontSize: 32, fontWeight: 800, letterSpacing: '-.03em' }}>Feed</h1>
         <Link to="/feed/new" className="icon-btn" style={{ background: 'var(--ink)', borderColor: 'var(--ink)' }} aria-label="Create post (physios)">
-          <Icon name="plus" color="#C6F432" width={2.2} />
+          <Icon name="plus" color="#4FE3C1" width={2.2} />
         </Link>
       </header>
 
@@ -67,12 +67,12 @@ function Post({ p, s, actions }) {
   const actionsRow = (
     <div className="post-actions">
       <button className="act" aria-pressed={liked} aria-label="Like" onClick={() => actions.like(p.id)}>
-        <Icon name="heart" size={22} fill={liked ? '#D9401F' : 'none'} color={liked ? '#D9401F' : '#0C0D0F'} />{p.likes + (liked ? 1 : 0)}
+        <Icon name="heart" size={22} fill={liked ? '#D9401F' : 'none'} color={liked ? '#D9401F' : '#0B1B2B'} />{p.likes + (liked ? 1 : 0)}
       </button>
       <span className="act" aria-label={`${p.comments} comments`}><Icon name="comment" size={22} />{p.comments}</span>
       <span className="grow" />
       <button className="act" aria-pressed={saved} aria-label="Save" onClick={() => actions.save(p.id)}>
-        <Icon name="bookmark" size={22} fill={saved ? '#0C0D0F' : 'none'} />
+        <Icon name="bookmark" size={22} fill={saved ? '#0B1B2B' : 'none'} />
       </button>
     </div>
   );
@@ -116,12 +116,12 @@ function Post({ p, s, actions }) {
     <article className="card flush mx mt14" style={{ borderRadius: 26 }}>
       {head}
       {p.mediaUrl ? (
-        <video src={p.mediaUrl} controls playsInline style={{ width: '100%', height: 400, objectFit: 'cover', background: '#121316' }} />
+        <video src={p.mediaUrl} controls playsInline style={{ width: '100%', height: 400, objectFit: 'cover', background: '#0F2236' }} />
       ) : (
         <Link to={target || '/feed'} className="reel">
           <span className="eyebrow" style={{ color: 'var(--lime)' }}>{p.type === 'routine' ? 'Routine' : 'Reel'}{p.length ? ` · ${p.length}` : ''}</span>
           <span className="t">{p.title}</span>
-          <span className="p"><PlayGlyph size={20} color="#0C0D0F" /></span>
+          <span className="p"><PlayGlyph size={20} color="#0B1B2B" /></span>
         </Link>
       )}
       {actionsRow}

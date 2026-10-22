@@ -38,7 +38,7 @@ export default function Challenge() {
               <div className="eyebrow">Target</div>
               <div style={{ fontFamily: 'var(--f-display)', fontSize: 48, fontWeight: 800, letterSpacing: '-.04em', color: 'var(--lime)' }}>{c.target}</div>
             </div>
-            <Ring size={76} stroke={6} pct={(idx / CHALLENGES.length) * 100} track="#2A2C31">
+            <Ring size={76} stroke={6} pct={(idx / CHALLENGES.length) * 100} track="#22364D">
               <span className="mono" style={{ fontSize: 12, fontWeight: 700 }}>{idx}/{CHALLENGES.length}</span>
             </Ring>
           </div>

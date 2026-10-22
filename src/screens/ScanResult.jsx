@@ -69,7 +69,7 @@ export default function ScanResult() {
           ))}
         </div>
         <div className="stack mt20" style={{ marginTop: 'auto', paddingTop: 20 }}>
-          <button className="btn lime block" onClick={claim}><Bolt size={16} color="#0C0D0F" />{scan.claimed ? 'Back to home' : `Claim ${scan.xp} XP and exit`}</button>
+          <button className="btn lime block" onClick={claim}><Bolt size={16} color="#0B1B2B" />{scan.claimed ? 'Back to home' : `Claim ${scan.xp} XP and exit`}</button>
           <Link to={`/play/${routine}`} className="btn block md">Start my routine</Link>
         </div>
       </section>

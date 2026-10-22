@@ -100,15 +100,15 @@ export default function Player({ id, postId }) {
       </section>
 
       <div style={{ marginTop: 'auto', padding: '0 20px 32px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 22 }}>
-        <Ring size={132} stroke={8} pct={(1 - left / m.sec) * 100} track="#23252A">
+        <Ring size={132} stroke={8} pct={(1 - left / m.sec) * 100} track="#1B3249">
           <span style={{ fontFamily: 'var(--f-display)', fontSize: 40, fontWeight: 800, letterSpacing: '-.03em' }} aria-live="off">{clock(left)}</span>
         </Ring>
         <div className="controls">
           <button className="ctl" onClick={() => jump(Math.max(0, i - 1))} aria-label="Previous move"><Icon name="prev" width={2} /></button>
           <button className="ctl main" onClick={() => setRunning(!running)} aria-label={running ? 'Pause' : 'Start'}>
             {running
-              ? <svg width="26" height="26" viewBox="0 0 24 24" fill="#0C0D0F" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1" /><rect x="14" y="5" width="4" height="14" rx="1" /></svg>
-              : <PlayGlyph size={26} color="#0C0D0F" />}
+              ? <svg width="26" height="26" viewBox="0 0 24 24" fill="#0B1B2B" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1" /><rect x="14" y="5" width="4" height="14" rx="1" /></svg>
+              : <PlayGlyph size={26} color="#0B1B2B" />}
           </button>
           <button className="ctl" onClick={() => (i < moves.length - 1 ? jump(i + 1) : (setRunning(false), setDone(true)))} aria-label="Next move"><Icon name="skip" width={2} /></button>
         </div>

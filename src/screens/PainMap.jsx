@@ -75,7 +75,7 @@ export default function PainMap() {
         fill={(i) => (i <= pain ? painTone(i).bg : undefined)} ends={['No pain', 'Unbearable']} />
       <Level title="Comfort level" sub="Overall mobility and ease" value={comfort} label={comfortLabel(comfort)}
         onDown={() => setComfort(Math.max(0, comfort - 1))} onUp={() => setComfort(Math.min(10, comfort + 1))}
-        fill={(i) => (i <= comfort ? '#0C0D0F' : undefined)} ends={['Very stiff', 'Moving freely']} />
+        fill={(i) => (i <= comfort ? '#0B1B2B' : undefined)} ends={['Very stiff', 'Moving freely']} />
 
       {lastLog && (
         <p className="muted pad" style={{ fontSize: 13, marginTop: 14 }}>

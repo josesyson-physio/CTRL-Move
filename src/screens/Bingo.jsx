@@ -64,7 +64,7 @@ export default function Bingo() {
 
       {done.length > 0 ? (
         <Link to={`/play/line:${firstLine}`} className="card lime mx mt12 row" style={{ padding: '16px 18px', gap: 14 }}>
-          <span style={{ width: 44, height: 44, borderRadius: 14, background: 'var(--ink)', display: 'grid', placeItems: 'center' }}><PlayGlyph color="#C6F432" /></span>
+          <span style={{ width: 44, height: 44, borderRadius: 14, background: 'var(--ink)', display: 'grid', placeItems: 'center' }}><PlayGlyph color="#4FE3C1" /></span>
           <span className="grow">
             <span className="mono" style={{ display: 'block', fontSize: 11, fontWeight: 700, letterSpacing: '.08em' }}>LINE CLEARED · +{XP_PER_LINE} XP</span>
             <span style={{ display: 'block', fontWeight: 700, fontSize: 15, marginTop: 2 }}>Relief routine unlocked</span>

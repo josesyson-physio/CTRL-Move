@@ -46,7 +46,7 @@ export default function BingoSymptom({ slug }) {
             <div style={{ fontFamily: 'var(--f-display)', fontSize: 28, fontWeight: 800, letterSpacing: '-.03em', lineHeight: 1.05 }}>{g.exercises.length} exercises</div>
             <div style={{ fontSize: 14, color: 'var(--night-soft)', marginTop: 6 }}>About {total} min · timed, step by step · +20 XP</div>
           </div>
-          <span style={{ width: 56, height: 56, borderRadius: '50%', background: 'var(--lime)', display: 'grid', placeItems: 'center', flex: '0 0 auto' }}><PlayGlyph size={20} color="#0C0D0F" /></span>
+          <span style={{ width: 56, height: 56, borderRadius: '50%', background: 'var(--lime)', display: 'grid', placeItems: 'center', flex: '0 0 auto' }}><PlayGlyph size={20} color="#0B1B2B" /></span>
         </div>
       </Link>
 
@@ -73,7 +73,7 @@ export default function BingoSymptom({ slug }) {
             {g.tips.map((t) => (
               <div key={t} className="row" style={{ alignItems: 'flex-start', gap: 12, padding: '10px 0', borderBottom: '1px solid var(--line)' }}>
                 <span style={{ width: 22, height: 22, borderRadius: 7, background: 'var(--lime)', display: 'grid', placeItems: 'center', flex: '0 0 auto', marginTop: 1 }}>
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#0C0D0F" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7" /></svg>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#0B1B2B" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7" /></svg>
                 </span>
                 <span style={{ fontSize: 14, lineHeight: 1.5 }}>{t}</span>
               </div>

@@ -55,8 +55,8 @@ export const PlayGlyph = ({ size = 18, color = 'currentColor' }) => (
 );
 export const Verified = ({ size = 14 }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" role="img" aria-label="Verified physio">
-    <circle cx="12" cy="12" r="10" fill="#0C0D0F" />
-    <path d="m8 12.5 2.6 2.6L16.5 9" fill="none" stroke="#C6F432" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
+    <circle cx="12" cy="12" r="10" fill="#0B1B2B" />
+    <path d="m8 12.5 2.6 2.6L16.5 9" fill="none" stroke="#4FE3C1" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 );
 
@@ -64,8 +64,8 @@ export const Verified = ({ size = 14 }) => (
 export function Wordmark({ dark = false, big = false }) {
   return (
     <span className={'wordmark' + (big ? ' big' : '') + (dark ? ' on-dark' : '')}>
-      <span className="keycap">Ctrl</span>
-      <span className="wm-move">+Move</span>
+      <img className="wm-mark" src="./logo-reverse.svg" alt="" aria-hidden="true" />
+      <span className="wm-move"><span className="wm-ctrl">Ctrl</span>+Move</span>
     </span>
   );
 }
@@ -109,7 +109,7 @@ export function TabBar({ active }) {
 }
 
 /* ---------- progress ---------- */
-export function Ring({ size = 120, stroke = 10, pct = 0, color = '#C6F432', track = '#23252A', children, label }) {
+export function Ring({ size = 120, stroke = 10, pct = 0, color = '#4FE3C1', track = '#1B3249', children, label }) {
   const r = (size - stroke) / 2;
   const C = 2 * Math.PI * r;
   const off = C * (1 - Math.max(0, Math.min(100, pct)) / 100);

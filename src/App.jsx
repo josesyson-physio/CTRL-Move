@@ -43,7 +43,7 @@ function Screen() {
   else if (path === '/feed') el = <Feed />;
   else if (path === '/feed/new') el = <PhysioUpload />;
   else if ((p = match('/feed/:id', path))) el = <Reader id={p.id} />;
-  else if (path === '/consult') el = <Consult autoMatch={query.get('match') === '1'} />;
+  else if (path === '/consult') el = <Consult />;
   else if (path === '/profile') el = <Profile />;
   else el = <Home />;
 

@@ -19,7 +19,7 @@ export default function Reader({ id }) {
     <main className="screen" style={{ background: '#fff' }}>
       <TopBar title="" backTo="/feed" right={
         <button className="icon-btn" aria-pressed={saved} aria-label="Save" onClick={() => actions.save(p.id)}>
-          <Icon name="bookmark" fill={saved ? '#0C0D0F' : 'none'} />
+          <Icon name="bookmark" fill={saved ? '#0B1B2B' : 'none'} />
         </button>
       } />
       <article className="reader pad mt20" style={{ paddingBottom: 48 }}>

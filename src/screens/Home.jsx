@@ -93,7 +93,7 @@ export default function Home() {
           <div className="l">Streak</div>
         </div>
         <div className="card stat">
-          <Bolt size={20} color="#0C0D0F" />
+          <Bolt size={20} color="#0B1B2B" />
           <div className="n">{s.xp.toLocaleString()}</div>
           <div className="l">XP · Level {lvl.level}</div>
         </div>
@@ -183,15 +183,15 @@ export default function Home() {
         </span>
         <span className="grow">
           <b style={{ display: 'block', fontSize: 16 }}>Consult a physio</b>
-          <span className="sub" style={{ display: 'block' }}>Book an expert session</span>
+          <span className="sub" style={{ display: 'block' }}>Request a session</span>
         </span>
         <Icon name="next" width={2} />
       </Link>
 
       <section className="card dark mx mt14 row" style={{ padding: 20, gap: 14 }}>
         <div className="grow">
-          <div style={{ fontWeight: 700, fontSize: 16 }}>Find a specialist near you</div>
-          <div style={{ fontSize: 13, color: 'var(--night-text)', marginTop: 4, lineHeight: 1.4 }}>Matched to your symptoms and location</div>
+          <div style={{ fontWeight: 700, fontSize: 16 }}>Talk to a physiotherapist</div>
+          <div style={{ fontSize: 13, color: 'var(--night-text)', marginTop: 4, lineHeight: 1.4 }}>Request a consult with our physiotherapists</div>
         </div>
         <button className="btn lime sm" style={{ height: 48 }} onClick={() => go('/consult?match=1')}>Find</button>
       </section>

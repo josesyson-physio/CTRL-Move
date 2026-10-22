@@ -32,7 +32,7 @@ export default function Relief() {
             <div style={{ fontFamily: 'var(--f-display)', fontSize: 30, fontWeight: 800, letterSpacing: '-.03em', lineHeight: 1.05 }}>{rec.name}</div>
             <div style={{ fontSize: 14, color: 'var(--night-soft)', marginTop: 6 }}>{rec.summary}</div>
           </div>
-          <span style={{ width: 56, height: 56, borderRadius: '50%', background: 'var(--lime)', display: 'grid', placeItems: 'center', flex: '0 0 auto' }}><PlayGlyph size={20} color="#0C0D0F" /></span>
+          <span style={{ width: 56, height: 56, borderRadius: '50%', background: 'var(--lime)', display: 'grid', placeItems: 'center', flex: '0 0 auto' }}><PlayGlyph size={20} color="#0B1B2B" /></span>
         </div>
       </Link>
 
