@@ -187,7 +187,7 @@ export default function Home() {
       </div>
       <section className="grid2 mx">
         <Tool to="/bingo" icon="play" title="Pain Bingo" sub="Gamified symptom tracker" meta="5×5 · 12 lines" />
-        <Tool to="/scan" icon="scan" title="Hardware Scan" sub="Know your body in 60\u00a0s" meta="6 levels" />
+        <Tool to="/scan" icon="scan" title="Hardware Scan" sub={'Know your body in 60\u00a0s'} meta="6 levels" />
         <Tool to="/challenge" icon="dumbbell" title="Muscle Challenge" sub="Can your muscles beat it?" meta="8 challenges" />
         <Tool to="/relief" icon="playCircle" title="Quick Relief" sub="Guided physio routines" meta="8 routines" />
       </section>
