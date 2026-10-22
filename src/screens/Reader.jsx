@@ -250,6 +250,204 @@ function Block({ b }) {
           <Link to={b.to} className="btn lime md block mt12">{b.label}</Link>
         </section>
       );
+    case 'rootcause':
+      return (
+        <figure className="art-rc">
+          <span className="eyebrow">Ctrl+Move explains · The real cause</span>
+          <div className="rc think">
+            <span className="rc-label">What people often blame</span>
+            <div className="rc-chips">{b.think.map((t) => <span key={t}>{t}</span>)}</div>
+          </div>
+          <div className="rc-arrow" aria-hidden="true"><Icon name="arrow" width={2.4} /></div>
+          <div className="rc real">
+            <span className="rc-label">What is usually really going on</span>
+            <b>{b.real}</b>
+          </div>
+        </figure>
+      );
+    case 'foundation':
+      return (
+        <figure className="art-fig" aria-label="When the middle back leans, everything above it compensates">
+          <svg viewBox="0 0 320 170" width="100%" aria-hidden="true">
+            <text x="80" y="164" textAnchor="middle" fontSize="11.5" fontWeight="700" fill="#0E7A62" fontFamily="var(--f-ui)">Foundation upright</text>
+            <text x="240" y="164" textAnchor="middle" fontSize="11.5" fontWeight="700" fill="#B5341A" fontFamily="var(--f-ui)">Foundation leaning</text>
+            <path d="M40 146 H120 M200 146 H280" stroke="#C9D3DC" strokeWidth="3" strokeLinecap="round" />
+            {[0, 1, 2, 3, 4].map((i) => (
+              <rect key={`a${i}`} x={66} y={124 - i * 20} width="28" height="14" rx="5" fill={i === 1 || i === 2 ? '#4FE3C1' : '#0B1B2B'} />
+            ))}
+            <circle cx="80" cy="16" r="11" fill="#0B1B2B" />
+            {[[226, 124, 0], [232, 104, 10], [242, 85, 18], [256, 68, 24], [270, 53, 30]].map(([x, y, r], i) => (
+              <rect key={`b${i}`} x={x} y={y} width="28" height="14" rx="5" fill={i === 1 || i === 2 ? '#FFA77A' : '#0B1B2B'} transform={`rotate(${r} ${x + 14} ${y + 7})`} />
+            ))}
+            <circle cx="298" cy="38" r="11" fill="#0B1B2B" />
+            <text x="110" y="76" fontSize="10.5" fontWeight="700" fill="#4A4F58" fontFamily="var(--f-ui)">thoracic</text>
+          </svg>
+          <div className="rc-chips" style={{ justifyContent: 'center', marginTop: 6 }}>
+            {b.effects.map((t) => <span key={t}>{t}</span>)}
+          </div>
+          <figcaption>Like a building: if the foundation leans, everything above it compensates.</figcaption>
+        </figure>
+      );
+    case 'compare':
+      return (
+        <figure className="art-compare">
+          <div className="cmp ok">
+            <span className="mf-tag" style={{ color: '#0E7A62' }}><Icon name="check" size={13} width={3} /> {b.ok.title}</span>
+            <p>{b.ok.text}</p>
+          </div>
+          <div className="cmp bad">
+            <span className="mf-tag" style={{ color: 'var(--red)' }}><Icon name="alert" size={13} width={2.6} /> {b.bad.title}</span>
+            <ul>{b.bad.items.map((t) => <li key={t}>{t}</li>)}</ul>
+          </div>
+        </figure>
+      );
+    case 'cycle': {
+      const n = b.items.length; const R = 92;
+      return (
+        <figure className="art-fig" aria-label={`Keep moving: ${b.items.join(', ')}, ${b.center}`}>
+          <svg viewBox="0 0 300 260" width="100%" aria-hidden="true">
+            <circle cx="150" cy="130" r={R} fill="none" stroke="#E3FAF4" strokeWidth="18" />
+            <circle cx="150" cy="130" r={R} fill="none" stroke="#4FE3C1" strokeWidth="3" strokeDasharray="6 8" />
+            {b.items.map((t, i) => {
+              const a = (i / n) * Math.PI * 2 - Math.PI / 2;
+              const x = 150 + R * Math.cos(a); const y = 130 + R * Math.sin(a);
+              return (
+                <g key={t}>
+                  <circle cx={x} cy={y} r="30" fill={i === 0 ? '#0B1B2B' : '#FFFFFF'} stroke="#0B1B2B" strokeWidth="2" />
+                  <text x={x} y={y + 4.5} textAnchor="middle" fontSize="12.5" fontWeight="800" fill={i === 0 ? '#4FE3C1' : '#0B1B2B'} fontFamily="var(--f-display)">{t}</text>
+                </g>
+              );
+            })}
+            <text x="150" y="126" textAnchor="middle" fontSize="13" fontWeight="700" fill="#4A4F58" fontFamily="var(--f-ui)">{b.centerTop}</text>
+            <text x="150" y="146" textAnchor="middle" fontSize="18" fontWeight="800" fill="#0B1B2B" fontFamily="var(--f-display)">{b.center}</text>
+          </svg>
+          <figcaption>{b.caption}</figcaption>
+        </figure>
+      );
+    }
+    case 'checklist':
+      return (
+        <section className="art-check">
+          {b.items.map((t) => (
+            <div key={t} className="ck"><span className="ck-box"><Icon name="check" size={13} width={3} /></span>{t}</div>
+          ))}
+        </section>
+      );
+    case 'medicine':
+      return (
+        <section className="art-rx" aria-label="Movement prescription">
+          <div className="rx-head">
+            <span className="rx-mark">Rx</span>
+            <span>
+              <span className="eyebrow" style={{ display: 'block' }}>Ctrl+Move explains</span>
+              <b>Movement is medicine</b>
+            </span>
+          </div>
+          {b.rows.map(([k, v]) => (
+            <div key={k} className="rx-row"><span>{k}</span><b>{v}</b></div>
+          ))}
+          <p className="rx-note">{b.note}</p>
+        </section>
+      );
+    case 'whypt':
+      return (
+        <section className="art-pt">
+          <span className="eyebrow">Ctrl+Move explains</span>
+          <h3>{b.title}</h3>
+          <div className="pt-steps">
+            {b.items.map((it, i) => (
+              <div key={it.t} className="pt-step">
+                <span className="flow-n">{i + 1}</span>
+                <b>{it.t}</b>
+                <span>{it.d}</span>
+              </div>
+            ))}
+          </div>
+          <p className="pt-note">{b.note}</p>
+        </section>
+      );
+    case 'chips':
+      return (
+        <figure className="art-converge">
+          {b.title && <span className="rc-label" style={{ textAlign: 'center', marginBottom: 6 }}>{b.title}</span>}
+          <div className="cv-chips">{b.items.map((t) => <span key={t}><Icon name="check" size={12} width={3} color="#0E7A62" /> {t}</span>)}</div>
+        </figure>
+      );
+    case 'triage':
+      return (
+        <figure className="art-fig" aria-label="A physiotherapist decides which patient needs which approach, at which stage">
+          <div className="tri-flow">
+            <span className="tf-box">You</span>
+            <span className="tf-line" aria-hidden="true" />
+            <span className="tf-box dark">Physio screening</span>
+            <span className="tf-line" aria-hidden="true" />
+            <div className="tf-split">
+              {b.options.map((o) => (
+                <span key={o.t} className="tf-opt" style={{ background: o.bg }}><b>{o.t}</b><span>{o.d}</span></span>
+              ))}
+            </div>
+          </div>
+          <figcaption>Not online or offline. The right approach, for the right patient, at the right stage.</figcaption>
+        </figure>
+      );
+    case 'week':
+      return (
+        <figure className="art-fig art-week">
+          {b.rows.map((r) => (
+            <div key={r.label} className="wk-row">
+              <span className="wk-label"><b>{r.label}</b><span>{r.sub}</span></span>
+              <div className="wk-days">
+                {['M', 'T', 'W', 'T', 'F', 'S', 'S'].map((d, i) => (
+                  <span key={i} className={'wk-day' + (r.days.includes(i) ? ' on' : '')} style={r.days.includes(i) ? { background: r.color } : undefined}>{d}</span>
+                ))}
+              </div>
+            </div>
+          ))}
+          <figcaption>{b.caption}</figcaption>
+        </figure>
+      );
+    case 'trio':
+      return (
+        <section className="art-trio">
+          {b.items.map((it, i) => (
+            <div key={it.t} className="trio-card">
+              <span className="trio-ico"><Icon name={it.icon || ['spark', 'scan', 'pulse'][i]} size={20} width={2} /></span>
+              <b>{it.t}</b>
+              <span>{it.d}</span>
+            </div>
+          ))}
+        </section>
+      );
+    case 'twostory':
+      return (
+        <figure className="art-two">
+          <div className="two-cols">
+            {b.people.map((pp) => (
+              <div key={pp.name} className="two-card">
+                <span className="two-av">{pp.name.slice(0, 1)}</span>
+                <b>{pp.name}</b>
+                <span className="rc-label" style={{ marginTop: 8 }}>Had</span>
+                <div className="rc-chips">{pp.had.map((t) => <span key={t}>{t}</span>)}</div>
+                <span className="rc-label" style={{ marginTop: 10 }}>But</span>
+                <ul>{pp.but.map((t) => <li key={t}>{t}</li>)}</ul>
+              </div>
+            ))}
+          </div>
+          <div className="two-result"><Icon name="alert" size={16} width={2.4} /> {b.result}</div>
+        </figure>
+      );
+    case 'partners':
+      return (
+        <figure className="art-partners">
+          {b.cols.map((c, i) => (
+            <div key={c.t} className={'pt-col' + (i === 1 ? ' dark' : '')}>
+              <span className="rc-label" style={i === 1 ? { color: 'var(--lime)' } : undefined}>{c.t}</span>
+              {c.items.map((x) => <p key={x}>{x}</p>)}
+            </div>
+          ))}
+          <div className="pt-join">{b.join}</div>
+        </figure>
+      );
     case 'closing':
       return (
         <section className="art-closing">

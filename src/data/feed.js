@@ -3,6 +3,163 @@
 
 export const SEED_POSTS = [
   {
+    id: 'ergonomics-smart-tech',
+    type: 'article',
+    art: 'ergonomics',
+    author: 'Dr. Syson Jose S, PT',
+    role: 'Physiotherapist',
+    hoursAgo: 0,
+    likes: 0,
+    comments: 0,
+    read: '5 min',
+    tag: 'Posture',
+    reviewed: true,
+    title: 'Ergonomics: Traditional Advice vs Modern Smart Technology',
+    caption: 'Traditional ergonomics gives us the foundation, modern technology builds on it providing real-time tracking.',
+    blocks: [
+      { type: 'glance', items: [
+        { k: 'Equipment isn’t protection', v: 'An expensive setup doesn’t help if you never move.' },
+        { k: 'Movement is the point', v: 'Ergonomics is a work environment where your body keeps moving efficiently.' },
+        { k: 'Partners, not competitors', v: 'Technology shows what is happening. A physiotherapist explains why.' },
+      ] },
+      { type: 'h', text: 'Which One Actually Works?' },
+      { type: 'p', text: 'Two colleagues joined the same company on the same day. Prathik had a premium ergonomic setup. An expensive chair. A standing desk. An ergonomic keyboard. A vertical mouse. A posture corrector. Everything looked perfect.' },
+      { type: 'p', text: 'Arjun, on the other hand, had an ordinary office chair and a basic desk. Six months later… Surprisingly, both of them developed neck and back pain. Why?' },
+      { type: 'twostory', result: 'Six months later, both developed neck and back pain.', people: [
+        { name: 'Prathik', had: ['Expensive chair', 'Standing desk', 'Ergonomic keyboard', 'Vertical mouse', 'Posture corrector'], but: ['Rarely took breaks', 'Sat for hours in the same position'] },
+        { name: 'Arjun', had: ['Ordinary office chair', 'Basic desk'], but: ['Ignored movement', 'Head bent forward over a laptop', 'Skipped exercise'] },
+      ] },
+      { type: 'p', text: 'Prathik believed buying ergonomic equipment automatically protected him. He rarely took breaks. He sat for hours in the same position. Arjun didn’t own expensive equipment, but he also ignored movement, worked on a laptop with his head bent forward, and skipped exercise.' },
+      { type: 'rootcause', think: ['The chair', 'Cheap equipment', 'Not enough gadgets'], real: 'Neither of them kept moving. The equipment was never the treatment.' },
+      { type: 'quote', text: 'Ergonomics isn’t about expensive equipment or perfect posture. It’s about creating a work environment where your body can keep moving efficiently.' },
+      { type: 'cycle', items: ['Sit', 'Stand', 'Stretch', 'Walk'], centerTop: 'every', center: '30–45 min', caption: 'Whatever your setup, keep your body moving through the day.' },
+
+      { type: 'h', text: 'Take-Home Message' },
+      { type: 'p', text: 'Traditional ergonomics and modern technology are not competitors. They are partners.' },
+      { type: 'partners', join: 'Partners', cols: [
+        { t: 'Technology', items: ['Can tell you what is happening.', 'Can detect patterns.'] },
+        { t: 'A physiotherapist', items: ['Understands why it is happening.', 'Interprets those patterns in the context of your body, lifestyle, goals, pain, and medical history.'] },
+      ] },
+      { type: 'medicine', rows: [['Prescription', 'Movement, at any desk'], ['Dose', 'Stand, stretch, or walk'], ['How often', 'Every 30–45 minutes'], ['Take with', 'A physiotherapist who knows your body']], note: 'Equipment helps. Movement treats. A physiotherapist tells you which movement you need.' },
+      { type: 'whypt', title: 'Why physiotherapy works: movement is medicine', items: [
+        { t: 'Assess', d: 'Find the real cause, not just where it hurts.' },
+        { t: 'Move', d: 'Treat with the right movement, at the right dose.' },
+        { t: 'Educate', d: 'Understand it, so you can change it for good.' },
+      ], note: 'Gadgets can track you. Only understanding the real cause, with your physiotherapist, changes what you do every day.' },
+      { type: 'cta', title: 'Make any desk work for you', text: 'Set up what you already have in the Posture Lab, and let the work-block timer keep you moving.', to: '/posture', label: 'Open Posture Lab' },
+    ],
+  },
+  {
+    id: 'tele-rehab',
+    type: 'article',
+    art: 'telerehab',
+    author: 'Dr. Syson Jose S, PT',
+    role: 'Physiotherapist',
+    hoursAgo: 0,
+    likes: 0,
+    comments: 0,
+    read: '8 min',
+    tag: 'Pain care',
+    reviewed: true,
+    title: 'Does Tele-Rehabilitation Really Work?',
+    caption: 'The Truth About Online Physiotherapy in the Age of AI and smart telehealth platforms.',
+    blocks: [
+      { type: 'glance', items: [
+        { k: 'Yes, for many conditions', v: 'Tele-rehabilitation can be highly effective. But not for every patient.' },
+        { k: 'Right approach, right stage', v: 'The question is which patient needs which approach, at which stage of recovery.' },
+        { k: 'Consistency beats complexity', v: 'The best program is the one you can follow every day.' },
+      ] },
+      { type: 'h', text: 'Can physiotherapy really be done online?' },
+      { type: 'p', text: '"Can physiotherapy really be done online, or do I always need to visit a clinic?"' },
+      { type: 'p', text: 'The answer is surprisingly simple. Yes—for many conditions, tele-rehabilitation can be highly effective. But… Not for every patient.' },
+      { type: 'quote', text: 'The future of rehabilitation isn’t choosing between online and offline care. It’s knowing which patient needs which approach, at which stage of recovery.' },
+      { type: 'triage', options: [
+        { t: 'In clinic', d: 'When hands-on assessment or care is needed', bg: '#F4F5F7' },
+        { t: 'Online', d: 'When guided exercise can be followed at home', bg: '#E3FAF4' },
+        { t: 'Both', d: 'Mixed through the stages of recovery', bg: '#C9F3E8' },
+      ] },
+
+      { type: 'h', text: 'Current Scientific Evidence (Made Simple)' },
+      { type: 'p', text: 'Over the past decade, studies have shown that tele-rehabilitation can provide outcomes comparable to in-person rehabilitation for selected conditions, particularly when the program is well designed and patients are appropriately screened.' },
+      { type: 'chips', title: 'Selected conditions', items: ['Chronic neck pain', 'Chronic low back pain', 'Postural disorders', 'Knee osteoarthritis', 'Shoulder rehabilitation', 'Post-operative exercise progression (selected patients)', 'Stroke rehabilitation follow-up and home exercise supervision'] },
+
+      { type: 'h', text: 'Clinical Pearl' },
+      { type: 'p', text: 'The best rehabilitation program is the one the patient can consistently follow. A perfect exercise plan performed once a week is often less effective than a good program followed every day.' },
+      { type: 'week', caption: 'Consistency beats complexity.', rows: [
+        { label: 'A perfect plan', sub: 'Performed once a week', days: [2], color: '#C9D3DC' },
+        { label: 'A good program', sub: 'Followed every day', days: [0, 1, 2, 3, 4, 5, 6], color: '#4FE3C1' },
+      ] },
+      { type: 'medicine', rows: [['Prescription', 'A program you can follow'], ['Dose', 'As your physiotherapist sets it'], ['How often', 'Every day'], ['Take with', 'Regular check-ins with your physio, online or in person']], note: 'Screening first: your physiotherapist decides whether online, in-clinic or both is right for you.' },
+      { type: 'whypt', title: 'Why physiotherapy works: movement is medicine', items: [
+        { t: 'Assess', d: 'Find the real cause, not just where it hurts.' },
+        { t: 'Move', d: 'Treat with the right movement, at the right dose.' },
+        { t: 'Educate', d: 'Understand it, so you can change it for good.' },
+      ], note: 'Online or in clinic, the treatment is the same: the right movement, and understanding why it works.' },
+
+      { type: 'trio', items: [
+        { t: 'Technology removes distance', d: 'Care reaches you at home.', icon: 'home' },
+        { t: 'AI improves measurement', d: 'Progress you can see.', icon: 'scan' },
+        { t: 'Smart systems increase consistency', d: 'Every day, not once a week.', icon: 'pulse' },
+      ] },
+      { type: 'closing', title: 'Take-Home Message',
+        lead: 'Tele-rehabilitation is not the future because it replaces physiotherapists.',
+        text: 'It is the future because it extends the reach of physiotherapists. Technology removes distance. Artificial Intelligence improves measurement. Smart systems increase consistency.' },
+    ],
+  },
+  {
+    id: 'thoracic-alignment',
+    type: 'article',
+    art: 'thoracic',
+    author: 'Dr. Syson Jose S, PT',
+    role: 'Physiotherapist',
+    hoursAgo: 0,
+    likes: 0,
+    comments: 0,
+    read: '6 min',
+    tag: 'Posture',
+    cover: 'Desk\nsetup',
+    reviewed: true,
+    title: 'Thoracic Alignment: Posture Tips for Ergonomic Desk Setups',
+    caption: 'Quick cervical spine adjustments that relieve shoulder knots and neck stiffness during extended sitting.',
+    blocks: [
+      { type: 'glance', items: [
+        { k: 'Your next posture is your best', v: 'Your spine doesn’t want to be frozen. It wants to move.' },
+        { k: 'The middle back is the foundation', v: 'When it leans, your neck, shoulders and lower back compensate.' },
+        { k: 'Sitting still is the real issue', v: 'Not sitting itself, but sitting for hours without movement.' },
+      ] },
+      { type: 'h', text: 'The Missing Link to Better Posture & an Ergonomic Desk Setup' },
+      { type: 'p', text: '"I sit with good posture... so why do I still have upper back, neck, or shoulder pain?"' },
+      { type: 'p', text: 'Many people believe posture means "sit straight." But your spine doesn’t want to be frozen. It wants to move.' },
+      { type: 'quote', text: 'The healthiest posture isn’t the perfect posture. It’s your next posture.' },
+      { type: 'rootcause', think: ['Not sitting straight enough', 'The wrong chair', 'A weak back'], real: 'Staying in one position for hours, without moving.' },
+
+      { type: 'h', text: 'Why It Matters' },
+      { type: 'p', text: 'Your thoracic spine (the middle part of your back) is like the foundation of a building. If the foundation begins to lean, everything above it is forced to compensate. Your neck bends forward. Your shoulders round. Your lower back arches. Even your breathing becomes less efficient.' },
+      { type: 'foundation', effects: ['Neck bends forward', 'Shoulders round', 'Lower back arches', 'Breathing less efficient'] },
+
+      { type: 'h', text: 'Current Scientific Evidence (Made Simple)' },
+      { type: 'p', text: 'Research shows that prolonged sitting alone isn’t always the problem. The real issue is prolonged sitting without movement.' },
+      { type: 'compare',
+        ok: { title: 'Sitting, with regular movement', text: 'Prolonged sitting alone isn’t always the problem.' },
+        bad: { title: 'Sitting for hours without movement', items: ['Reduces thoracic mobility', 'Increases muscle fatigue', 'Places extra stress on the neck and shoulders'] } },
+      { type: 'cycle', items: ['Sit', 'Stand', 'Stretch', 'Walk'], centerTop: 'every', center: '30–45 min', caption: 'Keep changing position. Your next posture is your best posture.' },
+
+      { type: 'h', text: 'Ergonomic Desk Setup Checklist' },
+      { type: 'checklist', items: ['Monitor at eye level.', 'Screen about an arm’s length away.', 'Shoulders relaxed—not shrugged.', 'Elbows close to the body at roughly 90°.', 'Feet flat on the floor or a footrest.', 'Lower back supported.', 'Keyboard and mouse close enough that you don’t reach forward.', 'Stand, stretch, or walk every 30–45 minutes.'] },
+      { type: 'cta', title: 'Check your own desk', text: 'Tick off each point at your desk in the Posture Lab and get your desk setup score.', to: '/posture', label: 'Open Posture Lab' },
+      { type: 'medicine', rows: [['Prescription', 'Change your position'], ['Dose', 'Stand, stretch, or walk'], ['How often', 'Every 30–45 minutes'], ['Take with', 'A desk set up from the checklist above']], note: 'Persistent pain needs a proper assessment. Your physiotherapist will tailor the plan to you.' },
+      { type: 'whypt', title: 'Why physiotherapy works: movement is medicine', items: [
+        { t: 'Assess', d: 'Find the real cause, not just where it hurts.' },
+        { t: 'Move', d: 'Treat with the right movement, at the right dose.' },
+        { t: 'Educate', d: 'Understand it, so you can change it for good.' },
+      ], note: 'Your chair isn’t your treatment. Your desk isn’t your therapist. Knowing the real cause is what lets you change it.' },
+
+      { type: 'closing', title: 'Take-Home Message',
+        lead: 'Your spine isn’t asking for perfection. It’s asking for movement.',
+        text: 'Your chair isn’t your treatment. Your desk isn’t your therapist. And your posture isn’t something to "hold." It’s something to manage dynamically throughout the day.' },
+    ],
+  },
+  {
     id: 'tech-neck',
     type: 'article',
     art: 'techneck',
@@ -33,6 +190,8 @@ export const SEED_POSTS = [
       { type: 'headload' },
       { type: 'p', text: 'The further your head moves forward, the harder your muscles, joints, and discs have to work. Eventually, the body starts sending warning signals. That warning signal is pain.' },
 
+      { type: 'rootcause', think: ['My pillow', 'My chair', 'The treatment failed'], real: 'Hours of forward-head posture every day, during the 23 hours outside the clinic.' },
+
       { type: 'h', text: 'Current Scientific Evidence' },
       { type: 'p', text: 'Modern research shows that persistent neck pain is rarely caused by one single factor. Instead, it is usually a combination of:' },
       { type: 'converge', to: 'Persistent neck pain', items: ['Prolonged poor posture', 'Reduced movement during the day', 'Weak deep neck muscles', 'Tight chest and shoulder muscles', 'Stress', 'Poor sleep', 'Lack of movement variety'] },
@@ -47,6 +206,12 @@ export const SEED_POSTS = [
         { t: 'Change movement', d: 'A successful program doesn’t simply reduce symptoms.' },
       ] },
 
+      { type: 'whypt', title: 'Why physiotherapy works: movement is medicine', items: [
+        { t: 'Assess', d: 'Find the real cause, not just where it hurts.' },
+        { t: 'Move', d: 'Treat with the right movement, at the right dose.' },
+        { t: 'Educate', d: 'Understand it, so you can change it for good.' },
+      ], note: 'Education is part of the treatment. When you understand why the pain keeps coming back, you can stop it coming back.' },
+
       { type: 'h', text: 'MotionPlus Protocol' },
       { type: 'p', text: 'At MotionPlus, we believe rehabilitation doesn’t end when the patient leaves the clinic. We follow a Clinic + Lifestyle + Technology approach.' },
       { type: 'triad', items: ['Clinic', 'Lifestyle', 'Technology'] },
@@ -57,6 +222,7 @@ export const SEED_POSTS = [
         { t: 'Detect', d: 'Prolonged forward-head posture.' },
         { t: 'Remind', d: 'Reset your posture.' },
       ] },
+      { type: 'medicine', rows: [['Prescription', 'A 2-minute neck reset'], ['Dose', '10 slow chin tucks and shoulder rolls'], ['How often', 'Every 30–45 minutes of screen time'], ['Take with', 'Your physiotherapist’s plan']], note: 'Pain relief is the beginning. The reset habit is what keeps the pain from returning.' },
       { type: 'cta', title: 'Start closing your 23-hour gap', text: 'Set up your desk in the Posture Lab and let the work-block timer remind you to move.', to: '/posture', label: 'Open Posture Lab' },
     ],
   },
@@ -102,6 +268,7 @@ export const SEED_POSTS = [
         { t: 'Supported', d: 'Supported by family.' },
         { t: 'Personal', d: 'Tailored to the individual, not copied from someone else’s treatment plan.' },
       ] },
+      { type: 'medicine', rows: [['Prescription', 'Repeated, meaningful practice'], ['Dose', 'Daily activities, practised again and again'], ['How often', 'Every day, as your rehabilitation team plans'], ['Take with', 'Family support and encouragement']], note: 'Started as early as medically safe, and tailored to the individual by the rehabilitation team.' },
       { type: 'p', text: 'Recovery isn’t about doing one magical exercise. It’s about doing the right things, consistently, over time.' },
 
       { type: 'h', text: 'Understanding the Recovery Journey' },
@@ -119,6 +286,12 @@ export const SEED_POSTS = [
           text: 'One of the biggest myths is: "Nothing improves after six months." Modern research says otherwise. Many people continue improving for months and even years with consistent rehabilitation, exercise, and an active lifestyle.',
           wins: ['Months', 'Years'] },
       ] },
+
+      { type: 'whypt', title: 'Why physiotherapy works: movement is medicine', items: [
+        { t: 'Assess', d: 'Find the real cause, not just where it hurts.' },
+        { t: 'Move', d: 'Treat with the right movement, at the right dose.' },
+        { t: 'Educate', d: 'Understand it, so you can change it for good.' },
+      ], note: 'When patients and families understand how the brain relearns, they keep practising, and practice is what drives recovery.' },
 
       { type: 'h', text: 'The Emotional Side of Recovery' },
       { type: 'p', text: 'Recovery isn’t only physical. There will be good days. There will be frustrating days. Some mornings will feel full of hope. Some days may feel discouraging. That is completely normal.' },
