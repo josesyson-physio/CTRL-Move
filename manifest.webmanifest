@@ -1,0 +1,16 @@
+{
+  "name": "Ctrl+Move",
+  "short_name": "Ctrl+Move",
+  "description": "Physio in your pocket. Detect early strain, move on time, level up your body.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0B1B2B",
+  "theme_color": "#0B1B2B",
+  "categories": ["health", "fitness", "medical"],
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "icon-maskable.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "maskable" }
+  ]
+}
